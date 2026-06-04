@@ -7,3 +7,12 @@ effects/
 data/
 assets/
 audio/
+rmmz_core.js
+rmmz_managers.js
+rmmz_objects.js
+rmmz_scenes.js
+rmmz_scenes.js
+rmmz_sprites.js
+rmmz_windows.js
+main.js
+plugins.js
