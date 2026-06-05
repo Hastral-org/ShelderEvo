@@ -65,20 +65,32 @@ SE_CLI.clearTerminal = function clearTerminal()
 	const output = document.getElementById('terminal-output');
 	output.innerHTML = "";
 }
-
-function displayPrompt()
+SE_CLI.displayPrompt = function displayPrompt()
 {
+	const html = document.getElementById("input-line")
+	if(html.style.display === "none")
+		html.style.display = "flex"
 	const user = SE_CLI?.activeUser ? SE_CLI?.activeUser : "unknown-user"
 	const moduleName = (SE_CLI.activeModule && SE_CLI.activeModule.name !== 'root') ? SE_CLI.activeModule.name.toUpperCase() : "ROOT";
 	const mode = (SE_CLI.activeModule && SE_CLI.activeModule.mode === 'input') ? "[INPUT]" : "";
-	return `${user}@${moduleName}:${mode}>`;
+	const promptString = `${user}@${moduleName}:${mode}>`;
+    // THIS IS WHAT WAS MISSING:
+    const promptSpan = document.querySelector(".prompt");
+    if(promptSpan) {
+        promptSpan.innerText = promptString;
+    }
+    
+    return promptString;
 }
-
-function updatePromptUI()
+SE_CLI.clearPrompt = function ()
+{
+	document.getElementById("input-line").style.display = "none"
+}
+SE_CLI.updatePromptUI = function updatePromptUI()
 {
 	const promptEl = document.querySelector('.prompt');
 	if(promptEl)
-		promptEl.innerText = displayPrompt();
+		promptEl.innerText = SE_CLI.displayPrompt();
 }
 // #endregion
 //------------------------------------------------------------------------
@@ -104,6 +116,125 @@ function switchInputMode(options)
  */
 //========================================================================
 // #endregion - 
+//========================================================================
+/**
+ * @name 
+ * @desc 
+ * 
+ */
+//========================================================================
+// #region - BOOT
+//========================================================================
+SE_CLI.BOOT = {};
+/**
+ * @name 
+ * @desc 
+ * 
+ */
+//------------------------------------------------------------------------
+// #region > Updater
+//------------------------------------------------------------------------
+SE_CLI.BOOT.updater = async function ()
+{
+	const ePrefix = "[BOOT | UPDATER]: "
+	try
+	{
+		console.log("placeholder. Skipping...")
+		return true
+	}	
+	catch(e)
+	{
+		console.error(e.message, e)
+		return false
+	}
+}
+// #endregion
+//------------------------------------------------------------------------
+/**
+ * @name 
+ * @desc 
+ * 
+ */
+//------------------------------------------------------------------------
+// #region > Handoof
+//------------------------------------------------------------------------
+SE_CLI.BOOT.handoff = async function ()
+{
+	const message = "Firmware synchronized. Booting 'Shelder Evolution'..."
+	await SE_CLI.printLine(message, "success", 1000)
+	SE_CLI.clearBIOS()
+	SE_CLI.clearTerminal()
+	SE_CLI.clearPrompt()
+	document.getElementById("view-logo").style.display = "flex"
+	await SE_CLI.printLine("", "success", 5000)
+	return window.location.href = "/main.html"
+}
+// #endregion
+//------------------------------------------------------------------------
+/**
+ * @name 
+ * @desc 
+ * 
+ */
+//------------------------------------------------------------------------
+// #region > Bootstrap
+//------------------------------------------------------------------------
+SE_CLI.connect = async function () 
+{
+	await SE_CLI.printLine(`Establishing secure link to ${SE_CLI.DOMAIN}...`, "info", 200);
+	await SE_CLI.initSocket()
+	if(SE_CLI.socket.id)
+		return true
+}
+SE_CLI.boot = async function boot() 
+{
+	await SE_CLI.printLine("\n\n\n\n\n\n")
+	await SE_CLI.printLine(`M.A.G.P.I.E. OS ${SE_CLI.printVersion()}`);
+	await SE_CLI.printLine("Loading kernel modules...", "info", 500);
+	// @todo add a loading spinner here
+	return await SE_CLI.BOOT.handoff()
+	// @todo bypassing to handoff during development
+	let attempt = await SE_CLI.connect();
+	if(!attempt) 
+	{
+		await SE_CLI.printLine("Attempt 2...", "info", 1000)
+		attempt = await SE_CLI.connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Attempt 3...", "info", 2000)
+		attempt = await SE_CLI.connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Attempt 4...", "info", 5000)
+		attempt = await SE_CLI.connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Attempt 5...", "info", 10000)
+		attempt = await SE_CLI.connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Max attempts. Please, try again later.", 5000)
+	}
+}
+SE_CLI.root = async function () 
+{
+	await SE_CLI.switchModule('root');
+	await SE_CLI.printLine("Type 'help' to see available commands.", "info", 20);
+	await SE_CLI.printLine(SE_CLI.UI.SEPARATOR, "info", 10);
+}
+// #endregion
+//------------------------------------------------------------------------
+/**
+ * 
+ * @desc back to {@link }
+*
+*/
+//========================================================================
+// #endregion - BOOT
 //========================================================================
 /**
  * @name 
@@ -145,10 +276,12 @@ SE_CLI.initSocket = async function initSocket()
 			await SE_CLI.printLine(SE_CLI.UI.SEPARATOR, "info", 2000);
 			// Start root module
 			SE_CLI.clearBIOS()
-			SE_CLI.clearTerminal()	
+			SE_CLI.clearTerminal()
+			SE_CLI.displayPrompt()	
 			console.log(`%c${message}`, SE_CLI.UI.CONSOLE_GREEN)
 			SE_CLI.socket.io.opts.reconnection = true;
-			resolve()
+			SE_CLI.root();
+			resolve(true)
 		})
 		SE_CLI.socket.on("connect_error", async () => {
 			await SE_CLI.printLine("Connection error. Server may be offline. Reconnecting...", "error", 1000)
@@ -175,12 +308,16 @@ SE_CLI.initSocket = async function initSocket()
 			resolve()
 		})
 		SE_CLI.socket.on("LOGIN_SUCCESS", async (data) => {
+			SE_CLI.activeUser = data.username
+			SE_CLI.SE_CLI.updatePromptUI()
+			SE_CLI.clearTerminal()
 			await SE_CLI.printLine(`Login successful. Welcome back, ${data.username}!`, "success")
 			localStorage.setItem("jwt_token", data.token);
-			SE_CLI.activeUser = data.username
-			await SE_CLI.printLine("Verifying local firmware files with server...", "info")
-			SE_CLI.BOOT.updater()
-			resolve()
+			await SE_CLI.switchModule("updater")
+			const update = await SE_CLI.modules.updater.handleInput("fetch")
+			if(!update)
+				reject("[BOOT] update error.")
+			resolve(SE_CLI.BOOT.handoff())
 		})
 		SE_CLI.socket.on("LOGIN_ERROR", async (data) => {
 			await SE_CLI.printLine(`Login failed: ${data.message}`, "error", 5000);
@@ -198,6 +335,11 @@ SE_CLI.initSocket = async function initSocket()
 			SE_CLI.resetModule();
 			await SE_CLI.switchModule("account")
 			resolve()
+		})
+		SE_CLI.socket.on("FETCH_FIRMWARE_RECEIVE", async (data) => {
+			if(!data?.package)
+
+			await SE_CLI.printLine(`Receiving package ${data.package}`)
 		})
 	})
 }
@@ -255,7 +397,7 @@ SE_CLI.switchModule = async (moduleName) =>
 		// Update container class for layout changes
 		SE_CLI.clearTerminal();
 		screen.className = `module-${moduleName}`;
-		updatePromptUI();
+		SE_CLI.updatePromptUI();
 		if(SE_CLI.activeModule.onEnter)
 			await SE_CLI.activeModule.onEnter();
 	} 
@@ -269,14 +411,14 @@ SE_CLI.modules.handleInput = async function(rawInput)
 	{
 		const cmd = rawInput.toLowerCase();
 		if(cmd === "") return
-		await SE_CLI.printLine(`${displayPrompt()} ${rawInput}`, "user", 0);
+		await SE_CLI.printLine(`${SE_CLI.displayPrompt()} ${rawInput}`, "user", 0);
 		if(module.commands && module.commands[cmd])
 			await module.commands[cmd]()
 		else await SE_CLI.printLine(`Command not found: ${cmd}`, "error")
 	}
 	else
 	{
-		await SE_CLI.printLine(`${displayPrompt()} [Input Received]`, "user", 0);
+		await SE_CLI.printLine(`${SE_CLI.displayPrompt()} [Input Received]`, "user", 0);
 		if(module.stepHandlers && module.stepHandlers[module.step])
 			await module.stepHandlers[module.step](rawInput, module);
 		else await SE_CLI.printLine(`[System Error] No handler configured for ${module.step}`, "error")
@@ -311,7 +453,7 @@ SE_CLI.modules.root = {
 		},
 		'clear': async () => {
 			SE_CLI.clearTerminal();
-			await SE_CLI.printLine(`${displayPrompt()}`, "user", 0);
+			await SE_CLI.printLine(`${SE_CLI.displayPrompt()}`, "user", 0);
 		},
 		'status': async () => {
 			await SE_CLI.printLine("Connecting to MAGPIE_Server...", "info");
@@ -351,7 +493,7 @@ SE_CLI.modules.account = {
 	renderUI: async () => 
 	{
 		await SE_CLI.printLine("--- ACCOUNT MANAGEMENT ---", "info");
-		await SE_CLI.printLine("Available: register, login, resetpassword, back", "info");
+		await SE_CLI.printLine("Available commands: register, login, resetpassword, back", "info");
 	},
 	onEnter: async () => {
 		await SE_CLI.modules.account.renderUI();
@@ -362,7 +504,7 @@ SE_CLI.modules.account = {
 		{
 			SE_CLI.modules.account.mode = "input"
 			SE_CLI.modules.account.step = "register_email"
-			updatePromptUI();
+			SE_CLI.updatePromptUI();
 			await SE_CLI.printLine("Please, enter your email:", "info")
 			switchInputMode({type: "email"})
 		},
@@ -371,7 +513,7 @@ SE_CLI.modules.account = {
 			const module = SE_CLI.modules.account;
 			module.mode = "input";
 			module.step = "login_email";
-			updatePromptUI();
+			SE_CLI.updatePromptUI();
 			await SE_CLI.printLine("Please, enter your email:", "info")
 			switchInputMode({type: "email"})
 		},
@@ -380,7 +522,7 @@ SE_CLI.modules.account = {
 			const module = SE_CLI.modules.account;
 			module.mode = "input";
 			module.step = "reset_email";
-			updatePromptUI();
+			SE_CLI.updatePromptUI();
 			await SE_CLI.printLine("Please, enter your account email to request a reset link:", "info");
 			switchInputMode({type: "email"})
 		},
@@ -416,7 +558,7 @@ SE_CLI.modules.account = {
 			module.mode = "command";
 			module.step = null;
 			module.tempData = {};
-			updatePromptUI();
+			SE_CLI.updatePromptUI();
 		},
 		"register_email": async (input, module) => {
 			module.tempData.email = input;
@@ -448,7 +590,7 @@ SE_CLI.modules.account = {
 			// await SE_CLI.printLine("Transmitting reset request to MAGPIE_Server...", "info")
 			module.mode = "command"
 			module.step = null;
-			updatePromptUI();
+			SE_CLI.updatePromptUI();
 		}
 	},
 	handleInput: SE_CLI.modules.handleInput,
@@ -463,12 +605,65 @@ SE_CLI.modules.account = {
 // #endregion
 //------------------------------------------------------------------------
 /**
+ * @name 
+ * @desc 
+ * 
+ */
+//------------------------------------------------------------------------
+// #region > Updater
+//------------------------------------------------------------------------
+/** @type {cli_module} */
+SE_CLI.modules.updater = {
+	name: "updater",
+	mode: "command",
+	step: null,
+	tempData: {},
+	renderUI: async () => {
+		await SE_CLI.printLine("--- FIRMWARE UPDATE ---", "info")
+		// await SE_CLI.printLine("Available commands: fetch, pull, back")
+	},
+	onEnter: async () => {
+		await SE_CLI.modules.updater.renderUI()
+	},
+	commands: {},
+	stepHandlers: {
+		"fetch": async (input, module) => {
+			module.step = null;
+			await SE_CLI.printLine("Fetching firmware data from server...", "info")
+			const payload = {
+				version: SE_CLI.meta.version
+			}
+			SE_CLI.socket.emit("FETCH_FIRMWARE", payload)
+		}
+	},
+	handleInput: {}
+}
+// #endregion
+//------------------------------------------------------------------------
+/**
  * 
  * @desc back to {@link SE_CLI.modules.meta}
  *
  */
 //========================================================================
 // #endregion - MODULES
+//========================================================================
+/**
+ * @name 
+ * @desc 
+ * 
+ */
+//========================================================================
+// #region - SYSTEM
+//========================================================================
+
+/**
+ * 
+ * @desc back to {@link }
+ *
+ */
+//========================================================================
+// #endregion - 
 //========================================================================
 /**
  * @name 
@@ -500,64 +695,4 @@ SE_CLI.INPUT.addEventListener('keydown', async (e) => {
 //========================================================================
 // #endregion - 
 //========================================================================
-/**
- * @name 
- * @desc 
- * 
- */
-//========================================================================
-// #region - BOOT
-//========================================================================
-async function boot() 
-{
-	await SE_CLI.printLine("\n\n\n\n\n\n")
-	await SE_CLI.printLine(`M.A.G.P.I.E. OS ${SE_CLI.printVersion()}`);
-	await SE_CLI.printLine("Loading kernel modules...", "info", 500);
-	// @todo replace the arbitrary delay with delay due to loading the CLI modules
-	// @todo add a loading spinner here
-	// Initialize socket connection
-	const connect = async () => {
-		await SE_CLI.printLine(`Establishing secure link to ${SE_CLI.DOMAIN}...`, "info", 200);
-		return await SE_CLI.initSocket()
-	}
-	let attempt = await connect();
-	if(!attempt) 
-	{
-		await SE_CLI.printLine("Attempt 2...", "info", 1000)
-		attempt = await connect()
-	}
-	if(!attempt)
-	{
-		await SE_CLI.printLine("Attempt 3...", "info", 2000)
-		attempt = await connect()
-	}
-	if(!attempt)
-	{
-		await SE_CLI.printLine("Attempt 4...", "info", 5000)
-		attempt = await connect()
-	}
-	if(!attempt)
-	{
-		await SE_CLI.printLine("Attempt 5...", "info", 10000)
-		attempt = await connect()
-	}
-	if(!attempt)
-	{
-		await SE_CLI.printLine("Max attempts. Please, try again later.", 5000)
-	}
-}
-SE_CLI.init = async function () 
-{
-	await SE_CLI.switchModule('root');
-	await SE_CLI.printLine("Type 'help' to see available commands.", "info", 20);
-	await SE_CLI.printLine(SE_CLI.UI.SEPARATOR, "info", 10);
-}
-boot();
-/**
- * 
- * @desc back to {@link }
- *
- */
-//========================================================================
-// #endregion - 
-//========================================================================
+SE_CLI.boot();

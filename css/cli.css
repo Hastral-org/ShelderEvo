@@ -113,6 +113,12 @@ body {
     -webkit-text-security: asterisk;
 }
 
+#view-logo {
+    white-space: pre;
+    font-family: monospace;
+    display: block
+}
+
 .prompt {
     color: var(--crt-green);
     white-space: nowrap;
