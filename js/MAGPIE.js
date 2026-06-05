@@ -31,7 +31,7 @@
 //========================================================================
 // #region - CLASS
 //========================================================================
-class MAGPIE {};
+const MAGPIE = {};
 MAGPIE.meta = {
 	name: "M.A.G.P.I.E.",
 	desc: "(M)odular (A)ltorithmic (G)eneral-(P)urpose (I)intelligence (E)ngine",
@@ -39,9 +39,6 @@ MAGPIE.meta = {
 	firmwareName: "MAGPIE",
 	firmwareDate: "20260604"
 }
-const fs = require("fs")
-const path = require("path")
-const { io } = require("socket.io-client")
 /**
  * 
  * @desc back to {@link }
@@ -62,26 +59,12 @@ MAGPIE.params = new URLSearchParams(window.location.search);
 MAGPIE.DATA = {};
 MAGPIE.DATA.ENTITYID = MAGPIE.params.get("entityID");
 MAGPIE.DATA.PLAYERID = MAGPIE.params.get("playerID");
+MAGPIE.DATA.connected = false;
 MAGPIE.CLI = {}
 MAGPIE.KEY = {};
-MAGPIE.KEY.SERVER_URL = "https.//shelderevolution.org"
-/**
- * 
- * @desc back to {@link }
- *
- */
-//========================================================================
-// #endregion - 
-//========================================================================
-/**
- * @name 
- * @desc 
- * 
- */
-//========================================================================
-// #region - SOCKET
-//========================================================================
-MAGPIE.SOCKET = io("https://shelderevolution.org", {
+MAGPIE.BOOT = {}
+
+MAGPIE.SOCKET = io("http://localhost:3000", {
 	auth: {
 		token: localStorage.getItem("jwt_token")
 	},
@@ -90,15 +73,15 @@ MAGPIE.SOCKET = io("https://shelderevolution.org", {
 		playerID: MAGPIE.DATA.PLAYERID
 	},
 	transports: ["websocket", "polling"],
-	secure: true
+	secure: false
 })
 MAGPIE.SOCKET.on("connect_error", (e) => {
 	console.error("%c[SOCKET] [ERROR]: ", "color: red; font-weight: bold;", e.message, e)
 })
 MAGPIE.SOCKET.on("connect", () => {
 	console.log(`%c Connected to server! ID: ${MAGPIE.SOCKET.id}`, "color: green; font-weight: bold;")
-	if(MAGPIE.CLI && typeof MAGPIE.CLI.boot === "function")
-		MAGPIE.CLI.boot()
+	MAGPIE.DATA.connected = true;
+	MAGPIE.BOOT.route()
 })
 MAGPIE.SOCKET.on("LOGIN_SUCCESS", (data) => {
 	console.log(`%c[AUTH] Authentication successful! Welcome, ${data.username}.`, "color: #00ff00")
@@ -153,9 +136,10 @@ MAGPIE.ROUTER.go = function(view)
 //========================================================================
 // #region - CLI
 //========================================================================
-MAGPIE.CLI.boot = function()
+MAGPIE.CLI.login = function()
 {
 	//@todo CLI boot
+	console.log("[DEBUG] ready for login")
 }
 /**
  * @name 
@@ -236,10 +220,26 @@ MAGPIE.UTILITY.printTimestring = function (date)
 // #region - BOOT
 //========================================================================
 MAGPIE.BOOT = {};
-MAGPIE.BOOT.handshake = function ()
+MAGPIE.BOOT.route = function()
 {
-	//@todo boot handshake
-}
+	const token = localStorage.getItem("jwt_token");
+	if (token)
+		return window.location.href = "js/main.html";
+	if(MAGPIE.DATA.connected)
+	{
+		MAGPIE.ROUTER.go('cli');
+		if(window.ShelderEvo_CLI && typeof window.ShelderEvo_CLI.initSocket === "function")
+		{
+			window.ShelderEvo_CLI.initSocket()
+			window.ShelderEvo_CLI.switchModule("account")
+		}
+	}
+	// window.location.href = "js/cli/index.html";
+};
+MAGPIE.BOOT.handshake = async function()
+{
+	console.log("[BOOT] Initiating handshake...");
+};
 MAGPIE.BOOT.updater = function ()
 {
 	//@todo boot updater
@@ -247,6 +247,9 @@ MAGPIE.BOOT.updater = function ()
 MAGPIE.boot = function ()
 {
 	//@todo boot sequence
+	const splashView = document.getElementById("view-splash")
+	if(splashView)
+		splashView.style.display = "block"
 	MAGPIE.CLI.bios()
 	MAGPIE.BOOT.handshake();
 }

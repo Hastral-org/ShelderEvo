@@ -26,37 +26,32 @@ Develop a new prototypal client for [MAGPIE_Server](../../MAGPIE_Server/README.m
 
 ---
 
-- [ ] MISSION 1: RECON -- pattern extraction and snippet harvesting
-  - [ ] TASK 1: extract viable logic/snippets from Project_L2e/ codebase
-    - [ ] STEP: identify and harvest Trait Generation logic
-    - [ ] STEP: identify and harvest Evolution/Growth mechanics
-    - [ ] STEP: extract Embryo adoption flow
-  - [ ] TASK 2: extract viable logic/snippets from MAGPIE/ codebase
-    - [ ] STEP: harvest legacy socket event handlers
-    - [ ] STEP: extract any existing creature-related data schemas
-  - [ ] TASK 3: consolidate [INTEL](../docs/intel.md) as a reference library
-    - [ ] STEP: map extracted snippets to ShelderEvo target files
-    - [ ] STEP: document compatibility issues with NWjs/RMMZ
+- [x] MISSION 1: RECON -- pattern extraction and snippet harvesting
+  - [x] TASK: extract viable logic/snippets from Project_L2e/ codebase
+  - [x] TASK: extract viable logic/snippets from MAGPIE/ codebase
+  - [x] TASK: consolidate [INTEL](../docs/intel.md) as a reference library
+    - [x] STEP: map extracted snippets to ShelderEvo target files
+    - [x] STEP: document compatibility issues with NWjs/RMMZ
 
 ---
 
 - [ ] MISSION 2: PREP -- prepare an implementation plan
-  - [ ] TASK 1: use INTEL to update this plan
-  - [ ] TASK 2: schedule work within June 8th 08:00 deadline
-  - [ ] TASK 3: allocate resources
+  - [ ] TASK: use [INTEL](../docs/intel.md) to update this plan
+  - [ ] TASK: schedule work within June 8th 08:00 deadline
+  - [ ] TASK: allocate resources
 
 ---
 
 - [ ] MISSION 3: client boot
-  - [ ] TASK: inherit "CLI" style and logic from server/public/cli/
-    - [ ] STEP 1: link [cli.js](../js/cli/cli.js) to [index.html](../index.html)
-    - [ ] STEP 2: add the script tag to [HTML entry point](../index.html)
-  - [ ] TASK: namespace alignment
-    - [ ] STEP: ensure `MAGPIE_CLI` in [cli.js](../js/cli/cli.js) correctly references `MAGPIE.SOCKET` and `MAGPIE.meta` from [MAGPIE.js](../js/MAGPIE.js)
-    - [ ] STEP: TUI `printLine` and `switchModule` must target `#terminal-output` and `#crt-screen` in [HTML](../index.html)
-  - [ ] TASK: socket handshake
-    - [ ] STEP: connection check in `MAGPIE_CLI.initSocket()`
-    - [ ] STEP: token validation `localStorage.getItem("jwt_token")` on boot
+  - [ ] TASK: implement boot router in root index.html
+    - [x] STEP: clean root index.html to be a router only
+    - [x] STEP: implement MAGPIE.BOOT.route() and handshake() in MAGPIE.js
+  - [ ] TASK: inherit "CLI" style and logic from server/public/cli/\
+    - [ ] STEP: verify [js/cli/index.html](../js/cli/index.html) loads [cli.js](../js/cli/cli.js) and [MAGPIE.js](../js/MAGPIE.js)
+    - [ ] STEP: ensure TUI targets #terminal-output and #crt-screen in CLI entry point
+  - [x] TASK: socket handshake
+    - [x] STEP: connection check in `MAGPIE_CLI.initSocket()`
+    - [x] STEP: token validation `localStorage.getItem("jwt_token")` on boot
   - [ ] TASK: Auth routing
     - [ ] STEP: if token is valid => skip to `root` module => trigger `updater`
     - [ ] STEP: if token is missing/invalid => `switchModule('account')` => prompt for `login`

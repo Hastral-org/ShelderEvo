@@ -1,15 +1,19 @@
 /**
- * @namespace MAGPIE_CLI
+ * @namespace SE_CLI
  * @author Matheraptor
  * @version 0.34.0
  * 
  */
-const MAGPIE_CLI = {};
-MAGPIE_CLI.meta = {
+const SE_CLI = {};
+SE_CLI.meta = {
 	name: "M.A.G.P.I.E. (C)ommand (L)ine (I)nterface",
 	desc: "",
-	version: MAGPIE.meta.version
+	version: [0,34,0]
 }
+SE_CLI.socket = {};
+SE_CLI.DOMAIN = "http://localhost:3000"
+SE_CLI.DATA = {};
+SE_CLI.params = new URLSearchParams(window.location.search);
 /**
  * @name 
  * @desc 
@@ -26,7 +30,15 @@ MAGPIE_CLI.meta = {
 //------------------------------------------------------------------------
 // #region > Basic
 //------------------------------------------------------------------------
-const cliInput = document.getElementById('cli-input');
+SE_CLI.UI = {};
+SE_CLI.UI.SEPARATOR = "--------------------------------------------------"
+SE_CLI.UI.CONSOLE_GREEN = "color: green; font-weight: bold;"
+SE_CLI.INPUT = document.getElementById('cli-input');
+SE_CLI.printVersion = function()
+{
+	const v = SE_CLI.meta.version;
+	return `v${v[0]}.${v[1]}.${v[2]}`
+}
 /**
  * 
  * @param {String} text 
@@ -34,7 +46,7 @@ const cliInput = document.getElementById('cli-input');
  * @param {Number} delay 
  * @returns 
  */
-async function printLine(text, type = "info", delay = 50)
+SE_CLI.printLine = async function printLine(text, type = "info", delay = 50)
 {
 	const output = document.getElementById('terminal-output');
 	const line = document.createElement("div");
@@ -44,7 +56,11 @@ async function printLine(text, type = "info", delay = 50)
 	output.scrollTop = output.scrollHeight;
 	return new Promise(res => setTimeout(res, delay));
 }
-function clearTerminal()
+SE_CLI.clearBIOS = function ()
+{
+	document.getElementById("view-splash").style.display = "none"
+}
+SE_CLI.clearTerminal = function clearTerminal()
 {
 	const output = document.getElementById('terminal-output');
 	output.innerHTML = "";
@@ -52,9 +68,9 @@ function clearTerminal()
 
 function displayPrompt()
 {
-	const user = MAGPIE_CLI?.activeUser ? MAGPIE_CLI?.activeUser : "unknown-user"
-	const moduleName = (MAGPIE_CLI.activeModule && MAGPIE_CLI.activeModule.name !== 'root') ? MAGPIE_CLI.activeModule.name.toUpperCase() : "ROOT";
-	const mode = (MAGPIE_CLI.activeModule && MAGPIE_CLI.activeModule.mode === 'input') ? "[INPUT]" : "";
+	const user = SE_CLI?.activeUser ? SE_CLI?.activeUser : "unknown-user"
+	const moduleName = (SE_CLI.activeModule && SE_CLI.activeModule.name !== 'root') ? SE_CLI.activeModule.name.toUpperCase() : "ROOT";
+	const mode = (SE_CLI.activeModule && SE_CLI.activeModule.mode === 'input') ? "[INPUT]" : "";
 	return `${user}@${moduleName}:${mode}>`;
 }
 
@@ -76,8 +92,8 @@ function updatePromptUI()
 //------------------------------------------------------------------------
 function switchInputMode(options) 
 {
-	cliInput.value = ""
-	cliInput.type = options?.type
+	SE_CLI.INPUT.value = ""
+	SE_CLI.INPUT.type = options?.type
 }
 // #endregion
 //------------------------------------------------------------------------
@@ -95,72 +111,94 @@ function switchInputMode(options)
  * 
  */
 //========================================================================
-// #region - KEY
-//========================================================================
-MAGPIE_CLI.UI = {};
-MAGPIE_CLI.UI.SEPARATOR = "--------------------------------------------------"
-/**
- * 
- * @desc back to {@link }
- *
- */
-//========================================================================
-// #endregion - 
-//========================================================================
-/**
- * @name 
- * @desc 
- * 
- */
-//========================================================================
 // #region - SOCKET
 //========================================================================
-function disconnectSocket() 
+SE_CLI.disconnectSocket = function disconnectSocket() 
 {
-	if(MAGPIE_CLI.socket)
-	{
-		MAGPIE_CLI.socket.disconnect()
-		MAGPIE_CLI.socket = null;
-		console.log("[SYSTEM] Socket disconnected.")
-	}
+	const id = SE_CLI.socket.id;
+	SE_CLI.socket.disconnect()
+	SE_CLI.socket = null;
+	console.log(`[SOCKET-${id}] disconnected.`)
 }
-function initSocket()
+SE_CLI.initSocket = async function initSocket()
 {
-	disconnectSocket()
-	const token = localStorage.getItem("jwt_token");
-	console.log(`[SYSTEM] Initializing socket. Token found: ${!!token}`)
-	MAGPIE_CLI.socket = MAGPIE.SOCKET;
-	MAGPIE_CLI.socket.on("boot", async (data) => {
-		MAGPIE.KEY = data;
-		const message = "[SYSTEM] core initialized."
-		console.log(message)
-		await printLine(message)
-	})
-	MAGPIE_CLI.socket.on("REGISTER_SUCCESS", async (data) => {
-		await printLine(`Registration successful. Welcome, ${data.username}!`, "success");
-		await printLine("Please, 'login' to continue.", "info");
-		await MAGPIE_CLI.switchModule("account")
-	})
-	MAGPIE_CLI.socket.on("REGISTER_ERROR", async (data) => {
-		await printLine(`Registration failed: ${data.message}`, "error")
-	})
-	MAGPIE_CLI.socket.on("LOGIN_SUCCESS", async (data) => {
-		await printLine(`Login successful. Welcome back, ${data.username}!`, "success")
-		localStorage.setItem("jwt_token", data.token);
-		MAGPIE_CLI.activeUser = data.username
-		await printLine("Verifying local firmware files with server...", "info")
-		MAGPIE.BOOT.updater()
-		// initSocket()
-		// MAGPIE_CLI.resetModule();
-		// await MAGPIE_CLI.switchModule("root")
-	})
-	MAGPIE_CLI.socket.on("LOGIN_ERROR", async (data) => {
-		await printLine(`Login failed: ${data.message}`, "error");
-		MAGPIE_CLI.resetModule();
-		await MAGPIE_CLI.switchModule("account");
-	})
-	MAGPIE_CLI.socket.on("connect_error", async () => {
-		await printLine("Connection error. Server may be offline.", "error")
+	return new Promise((resolve, reject) => {
+		if(SE_CLI.socket && SE_CLI.socket.id) 
+			SE_CLI.disconnectSocket();
+		SE_CLI.socket = io(SE_CLI.DOMAIN, {
+			auth: {
+				token: localStorage.getItem("jwt_token")
+			},
+			query: {
+				entityID: SE_CLI.params.entityID,
+				playerID: SE_CLI.params.playerID
+			},
+			transports: ["websocket", "polling"],
+			secure: false,
+			reconnection: false
+		}) 
+		if(!SE_CLI.socket)
+			throw new Error("unable to init socket")
+		SE_CLI.socket.on("connect", async () => {
+			const message = `[SOCKET-${SE_CLI.socket.id}] connected to ${SE_CLI.DOMAIN}.`
+			await SE_CLI.printLine(message, "success", 500);
+			await SE_CLI.printLine(SE_CLI.UI.SEPARATOR, "info", 2000);
+			// Start root module
+			SE_CLI.clearBIOS()
+			SE_CLI.clearTerminal()	
+			console.log(`%c${message}`, SE_CLI.UI.CONSOLE_GREEN)
+			SE_CLI.socket.io.opts.reconnection = true;
+			resolve()
+		})
+		SE_CLI.socket.on("connect_error", async () => {
+			await SE_CLI.printLine("Connection error. Server may be offline. Reconnecting...", "error", 1000)
+			resolve()
+		})
+		const token = localStorage.getItem("jwt_token");
+		if(token)
+			console.log(`Token found: ${!!token}`)
+		SE_CLI.socket.on("boot", async (data) => {
+			SE_CLI.KEY = data;
+			const message = "[SYSTEM] core initialized."
+			console.log(message)
+			await SE_CLI.printLine(message)
+			resolve()
+		})
+		SE_CLI.socket.on("REGISTER_SUCCESS", async (data) => {
+			await SE_CLI.printLine(`Registration successful. Welcome, ${data.username}!`, "success");
+			await SE_CLI.printLine("Please, 'login' to continue.", "info");
+			await SE_CLI.switchModule("account")
+			resolve()
+		})
+		SE_CLI.socket.on("REGISTER_ERROR", async (data) => {
+			await SE_CLI.printLine(`Registration failed: ${data.message}`, "error")
+			resolve()
+		})
+		SE_CLI.socket.on("LOGIN_SUCCESS", async (data) => {
+			await SE_CLI.printLine(`Login successful. Welcome back, ${data.username}!`, "success")
+			localStorage.setItem("jwt_token", data.token);
+			SE_CLI.activeUser = data.username
+			await SE_CLI.printLine("Verifying local firmware files with server...", "info")
+			SE_CLI.BOOT.updater()
+			resolve()
+		})
+		SE_CLI.socket.on("LOGIN_ERROR", async (data) => {
+			await SE_CLI.printLine(`Login failed: ${data.message}`, "error", 5000);
+			SE_CLI.resetModule();
+			await SE_CLI.switchModule("account");
+			resolve()
+		})
+		SE_CLI.socket.on("RESET_PASSWORD_SUCCESS", async (data) => {
+			await SE_CLI.printLine("Password reset email sent.", "success", 5000)
+			await SE_CLI.switchModule("account");
+			resolve()
+		})
+		SE_CLI.socket.on("RESET_PASSWORD_ERROR", async (data) => {
+			await SE_CLI.printLine("Password reset error. Please, try again.", "error", 5000)
+			SE_CLI.resetModule();
+			await SE_CLI.switchModule("account")
+			resolve()
+		})
 	})
 }
 
@@ -197,58 +235,57 @@ function initSocket()
 //------------------------------------------------------------------------
 // #region > Handling
 //------------------------------------------------------------------------
-MAGPIE_CLI.modules = {}
-MAGPIE_CLI.modules.meta = {
-	name: `${MAGPIE_CLI.meta.name} modules`
+SE_CLI.modules = {}
+SE_CLI.modules.meta = {
+	name: `${SE_CLI.meta.name} modules`
 }
-MAGPIE_CLI.activeModule = null
+SE_CLI.activeModule = null
 
-MAGPIE_CLI.switchModule = async (moduleName) => 
+SE_CLI.switchModule = async (moduleName) => 
 {
 	console.log(`[DEBUG] Switching module to: ${moduleName}`);
 	const screen = document.getElementById('crt-screen');
-	if(MAGPIE_CLI.activeModule && MAGPIE_CLI.activeModule.onExit)
-		await MAGPIE_CLI.activeModule.onExit();
+	if(SE_CLI.activeModule && SE_CLI.activeModule.onExit)
+		await SE_CLI.activeModule.onExit();
 	
-	if(MAGPIE_CLI.modules[moduleName])
+	if(SE_CLI.modules[moduleName])
 	{
-		MAGPIE_CLI.activeModule = MAGPIE_CLI.modules[moduleName];
+		SE_CLI.activeModule = SE_CLI.modules[moduleName];
 		
 		// Update container class for layout changes
-		clearTerminal();
+		SE_CLI.clearTerminal();
 		screen.className = `module-${moduleName}`;
 		updatePromptUI();
-		
-		if(MAGPIE_CLI.activeModule.onEnter)
-			await MAGPIE_CLI.activeModule.onEnter();
+		if(SE_CLI.activeModule.onEnter)
+			await SE_CLI.activeModule.onEnter();
 	} 
 	else
-		await printLine(`[System Error] Module '${moduleName}' not found.`, "error");
+		await SE_CLI.printLine(`[System Error] Module '${moduleName}' not found.`, "error");
 };
-MAGPIE_CLI.modules.handleInput = async function(rawInput) 
+SE_CLI.modules.handleInput = async function(rawInput) 
 {
 	const module = this;
 	if(module.mode === "command" || !module.mode)
 	{
 		const cmd = rawInput.toLowerCase();
 		if(cmd === "") return
-		await printLine(`${displayPrompt()} ${rawInput}`, "user", 0);
+		await SE_CLI.printLine(`${displayPrompt()} ${rawInput}`, "user", 0);
 		if(module.commands && module.commands[cmd])
 			await module.commands[cmd]()
-		else await printLine(`Command not found: ${cmd}`, "error")
+		else await SE_CLI.printLine(`Command not found: ${cmd}`, "error")
 	}
 	else
 	{
-		await printLine(`${displayPrompt()} [Input Received]`, "user", 0);
+		await SE_CLI.printLine(`${displayPrompt()} [Input Received]`, "user", 0);
 		if(module.stepHandlers && module.stepHandlers[module.step])
 			await module.stepHandlers[module.step](rawInput, module);
-		else await printLine(`[System Error] No handler configured for ${module.step}`, "error")
+		else await SE_CLI.printLine(`[System Error] No handler configured for ${module.step}`, "error")
 	}
 }
-MAGPIE_CLI.resetModule = function resetModule()
+SE_CLI.resetModule = function resetModule()
 {
-	MAGPIE_CLI.modules.account.mode = "command";
-	MAGPIE_CLI.modules.account.step = null;
+	SE_CLI.modules.account.mode = "command";
+	SE_CLI.modules.account.step = null;
 }
 // #endregion
 //------------------------------------------------------------------------
@@ -260,40 +297,40 @@ MAGPIE_CLI.resetModule = function resetModule()
 //------------------------------------------------------------------------
 // #region > Root
 //------------------------------------------------------------------------
-MAGPIE_CLI.modules.root = {
+SE_CLI.modules.root = {
 	name: "root",
 	onEnter: async () => {},
 	commands: {
 		'help': async () => {
-			await printLine("Available Commands:", "info");
-			await printLine("  - help       : Display this menu", "info");
-			await printLine("  - clear      : clears the terminal screen", "info");
-			await printLine("  - account   	: go to account management", "info");
-			await printLine("  - status     : check server connection status", "info");
-			await printLine("  - exit       : return to main landing page", "info");
+			await SE_CLI.printLine("Available Commands:", "info");
+			await SE_CLI.printLine("  - help       : Display this menu", "info");
+			await SE_CLI.printLine("  - clear      : clears the terminal screen", "info");
+			await SE_CLI.printLine("  - account   	: go to account management", "info");
+			await SE_CLI.printLine("  - status     : check server connection status", "info");
+			await SE_CLI.printLine("  - exit       : return to main landing page", "info");
 		},
 		'clear': async () => {
-			clearTerminal();
-			await printLine(`${displayPrompt()}`, "user", 0);
+			SE_CLI.clearTerminal();
+			await SE_CLI.printLine(`${displayPrompt()}`, "user", 0);
 		},
 		'status': async () => {
-			await printLine("Connecting to MAGPIE_Server...", "info");
+			await SE_CLI.printLine("Connecting to MAGPIE_Server...", "info");
 			// @todo CLI socket check
-			await printLine("STATUS: ONLINE", "success");
-			await printLine("LATENCY: 24ms", "info");
+			await SE_CLI.printLine("STATUS: ONLINE", "success");
+			await SE_CLI.printLine("LATENCY: 24ms", "info");
 		},
 		/**
-		 * @desc {@link MAGPIE_CLI.modules.account}
+		 * @desc {@link SE_CLI.modules.account}
 		 */
 		'account': async () => 
 		{
-			await MAGPIE_CLI.switchModule('account')
+			await SE_CLI.switchModule('account')
 		},
 		'exit': () => {
 			window.location.href = "/";
 		}
 	},
-	handleInput: MAGPIE_CLI.modules.handleInput
+	handleInput: SE_CLI.modules.handleInput
 };
 // #endregion
 //------------------------------------------------------------------------
@@ -306,37 +343,50 @@ MAGPIE_CLI.modules.root = {
 // #region > Account
 //------------------------------------------------------------------------
 /** @type {cli_module} */
-MAGPIE_CLI.modules.account = {
+SE_CLI.modules.account = {
 	name: "account",
 	mode: "command", 
 	step: null,     
 	tempData: {},
-	onEnter: async () => 
+	renderUI: async () => 
 	{
-		await printLine("--- ACCOUNT MANAGEMENT ---", "info")
-		await printLine("Available: register, login, back", "info")
+		await SE_CLI.printLine("--- ACCOUNT MANAGEMENT ---", "info");
+		await SE_CLI.printLine("Available: register, login, resetpassword, back", "info");
+	},
+	onEnter: async () => {
+		await SE_CLI.modules.account.renderUI();
 	},
 	commands: 
 	{
 		'register': async () => 
 		{
-			MAGPIE_CLI.modules.account.mode = "input"
-			MAGPIE_CLI.modules.account.step = "username"
+			SE_CLI.modules.account.mode = "input"
+			SE_CLI.modules.account.step = "register_email"
 			updatePromptUI();
-			await printLine("Please, enter your desired 'username':", "info")
+			await SE_CLI.printLine("Please, enter your email:", "info")
+			switchInputMode({type: "email"})
 		},
 		'login': async () => 
 		{
-			const module = MAGPIE_CLI.modules.account;
+			const module = SE_CLI.modules.account;
 			module.mode = "input";
 			module.step = "login_email";
 			updatePromptUI();
-			await printLine("Please, enter your email:", "info")
+			await SE_CLI.printLine("Please, enter your email:", "info")
+			switchInputMode({type: "email"})
+		},
+		'resetpassword': async () => 
+		{
+			const module = SE_CLI.modules.account;
+			module.mode = "input";
+			module.step = "reset_email";
+			updatePromptUI();
+			await SE_CLI.printLine("Please, enter your account email to request a reset link:", "info");
 			switchInputMode({type: "email"})
 		},
 		'back': async () => 
 		{
-			await MAGPIE_CLI.switchModule('root')
+			await SE_CLI.switchModule('root')
 		}
 	},
 	/**
@@ -349,28 +399,35 @@ MAGPIE_CLI.modules.account = {
 		"username": async (input, module) => {
 			module.tempData.username = input;
 			module.step = "password";
-			await printLine("Please, enter your desired 'password':", "info")
-			switchInputMode({type: MAGPIE.KEY.HTML.INPUT.TYPE.PASSWORD})
+			await SE_CLI.printLine("Please, enter your desired 'password':", "info")
+			switchInputMode({type: SE_CLI.KEY.HTML.INPUT.TYPE.PASSWORD})
 		},
 		/** @param {String} input @param {cli_module} module */
 		"password": async (input, module) => {
 			const hash = await module.hashPassword(input);
 			const payload = {
+				email: module.tempData.email,
 				username: module.tempData.username,
 				passwordHash: hash
 			}
-			switchInputMode({type: MAGPIE.KEY.HTML.INPUT.TYPE.TEXT})
-			MAGPIE_CLI.socket.emit("REGISTER", payload);
-			await printLine("Transmitting credentials (placeholder)...", "info")
+			switchInputMode({type: SE_CLI.KEY.HTML.INPUT.TYPE.TEXT})
+			SE_CLI.socket.emit("REGISTER", payload);
+			// await SE_CLI.printLine("Transmitting credentials (placeholder)...", "info")
 			module.mode = "command";
 			module.step = null;
 			module.tempData = {};
 			updatePromptUI();
 		},
+		"register_email": async (input, module) => {
+			module.tempData.email = input;
+			module.step = "username";
+			await SE_CLI.printLine("Please, enter your desired username:", "info");
+			switchInputMode({type: "text"})
+		},
 		"login_email": async (input, module) => {
 			module.tempData.email = input;
 			module.step = "login_password";
-			await printLine("Please, enter your password:", "info");
+			await SE_CLI.printLine("Please, enter your password:", "info");
 			switchInputMode({type: "password"})
 		},
 		"login_password": async (input, module) => {
@@ -379,11 +436,22 @@ MAGPIE_CLI.modules.account = {
 				password: input
 			}
 			switchInputMode({type: "text"})
-			MAGPIE_CLI.socket.emit("LOGIN", payload)
-			await printLine("Transmitting credentials...", "info")
+			SE_CLI.socket.emit("LOGIN", payload)
+			// await SE_CLI.printLine("Transmitting credentials...", "info")
+		},
+		"reset_email": async (input, module) => {
+			const payload = {
+				email: input
+			}
+			switchInputMode({type: "text"})
+			SE_CLI.socket.emit("RESET_PASSWORD_REQUEST", payload)
+			// await SE_CLI.printLine("Transmitting reset request to MAGPIE_Server...", "info")
+			module.mode = "command"
+			module.step = null;
+			updatePromptUI();
 		}
 	},
-	handleInput: MAGPIE_CLI.modules.handleInput,
+	handleInput: SE_CLI.modules.handleInput,
 	hashPassword: async (password) =>
 	{
 		const msgUint8 = new TextEncoder().encode(password);
@@ -396,7 +464,7 @@ MAGPIE_CLI.modules.account = {
 //------------------------------------------------------------------------
 /**
  * 
- * @desc back to {@link MAGPIE_CLI.modules.meta}
+ * @desc back to {@link SE_CLI.modules.meta}
  *
  */
 //========================================================================
@@ -409,18 +477,18 @@ MAGPIE_CLI.modules.account = {
  */
 //========================================================================
 // #region - EVENTS
-//========================================================================
-cliInput.focus();
-cliInput.addEventListener('keydown', async (e) => {
+//===================================================================
+SE_CLI.INPUT.focus();
+SE_CLI.INPUT.addEventListener('keydown', async (e) => {
 	if(e.key === 'Enter') 
 	{
-		const rawInput = cliInput.value.trim();
-		cliInput.value = "";
+		const rawInput = SE_CLI.INPUT.value.trim();
+		SE_CLI.INPUT.value = "";
 		
-		if (MAGPIE_CLI.activeModule) {
-			await MAGPIE_CLI.activeModule.handleInput(rawInput);
+		if (SE_CLI.activeModule) {
+			await SE_CLI.activeModule.handleInput(rawInput);
 		} else {
-			await printLine(`[System Error] No active module to handle input.`, "error");
+			await SE_CLI.printLine(`[System Error] No active module to handle input.`, "error");
 		}
 	}
 });
@@ -442,24 +510,48 @@ cliInput.addEventListener('keydown', async (e) => {
 //========================================================================
 async function boot() 
 {
-	await printLine(`M.A.G.P.I.E. OS v${MAGPIE_CLI.meta.version}`);
-	await printLine("Loading kernel modules...", "info", 500);
+	await SE_CLI.printLine("\n\n\n\n\n\n")
+	await SE_CLI.printLine(`M.A.G.P.I.E. OS ${SE_CLI.printVersion()}`);
+	await SE_CLI.printLine("Loading kernel modules...", "info", 500);
 	// @todo replace the arbitrary delay with delay due to loading the CLI modules
-	await printLine("Establishing secure link to MAGPIE_Server...", "info", 500);
 	// @todo add a loading spinner here
 	// Initialize socket connection
-	initSocket();
-	
-	await printLine("Link established. Welcome, 'user'.", "success", 2000);
-	await printLine(MAGPIE_CLI.UI.SEPARATOR, "info", 2000);
-
-	// Start root module
-	await MAGPIE_CLI.switchModule('root');
-	
-	await printLine("Type 'help' to see available commands.", "info", 20);
-	await printLine(MAGPIE_CLI.UI.SEPARATOR, "info", 10);
+	const connect = async () => {
+		await SE_CLI.printLine(`Establishing secure link to ${SE_CLI.DOMAIN}...`, "info", 200);
+		return await SE_CLI.initSocket()
+	}
+	let attempt = await connect();
+	if(!attempt) 
+	{
+		await SE_CLI.printLine("Attempt 2...", "info", 1000)
+		attempt = await connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Attempt 3...", "info", 2000)
+		attempt = await connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Attempt 4...", "info", 5000)
+		attempt = await connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Attempt 5...", "info", 10000)
+		attempt = await connect()
+	}
+	if(!attempt)
+	{
+		await SE_CLI.printLine("Max attempts. Please, try again later.", 5000)
+	}
 }
-
+SE_CLI.init = async function () 
+{
+	await SE_CLI.switchModule('root');
+	await SE_CLI.printLine("Type 'help' to see available commands.", "info", 20);
+	await SE_CLI.printLine(SE_CLI.UI.SEPARATOR, "info", 10);
+}
 boot();
 /**
  * 
