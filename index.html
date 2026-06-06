@@ -1,0 +1,56 @@
+<!-- js/cli/index.html version 0.34.0-->
+ <!DOCTYPE html>
+ <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shelder Evolution</title>
+        <link rel="icon" href="icon/icon.png" type="image/png">
+		<link rel="apple-touch-icon" href="icon/icon.png">
+		<link rel="stylesheet" type="text/css" href="css/cli.css">
+    </head>
+    <body style="background-color: black">
+        <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+        <div id="crt-screen">
+            <section id="view-splash" class="terminal-view" style="display: block;">
+				<pre class="bios-logo">
+███╗   ███╗    █████╗     ██████╗    ██████╗ ██╗   ███████╗   
+████╗ ████║   ██╔══██╗   ██╔════╝    ██╔══██╗██║   ██╔════╝   
+██╔████╔██║   ███████║   ██║  ███╗   ██████╔╝██║   █████╗     
+██║╚██╔╝██║   ██╔══██║   ██║   ██║   ██╔═══╝ ██║   ██╔══╝     
+██║ ╚═╝ ██║██╗██║  ██║██╗╚██████╔╝██╗██║██╗  ██║██╗███████╗██╗
+╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝
+<br>Ⓒ 2026 MATHERAPTOR @ MAEDASHELADI CORP.
+				</pre>
+            </section>
+            <section id="view-logo" class="terminal-view" style="display: none;">
+╔════════════════════════════════════════════════════════════════════════════╗
+║ ███████╗██╗  ██╗███████╗██╗     ██████╗ ███████╗██████╗                    ║
+║ ██╔════╝██║  ██║██╔════╝██║     ██╔══██╗██╔════╝██╔══██╗                   ║
+║ ███████╗███████║█████╗  ██║     ██║  ██║█████╗  ██████╔╝                   ║
+║ ╚════██║██╔══██║██╔══╝  ██║     ██║  ██║██╔══╝  ██╔══██╗                   ║
+║ ███████║██║  ██║███████╗███████╗██████╔╝███████╗██║  ██║                   ║
+║ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝                   ║
+║                                                                            ║
+║ ███████╗██╗   ██╗ ██████╗ ██╗     ██╗   ██╗████████╗██╗ ██████╗ ███╗   ██╗ ║
+║ ██╔════╝██║   ██║██╔═══██╗██║     ██║   ██║╚══██╔══╝██║██╔═══██╗████╗  ██║ ║
+║ █████╗  ██║   ██║██║   ██║██║     ██║   ██║   ██║   ██║██║   ██║██╔██╗ ██║ ║
+║ ██╔══╝  ╚██╗ ██╔╝██║   ██║██║     ██║   ██║   ██║   ██║██║   ██║██║╚██╗██║ ║
+║ ███████╗ ╚████╔╝ ╚██████╔╝███████╗╚██████╔╝   ██║   ██║╚██████╔╝██║ ╚████║ ║
+║ ╚══════╝  ╚═══╝   ╚═════╝ ╚══════╝ ╚═════╝    ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ║
+╚════════════════════════════════════════════════════════════════════════════╝
+            </section> 
+            <section id="view-cli" class="terminal-view">
+                <div id="terminal-output">
+                    <!-- terminal lines will be injected here by cli.js -->
+                </div>
+                <div id="input-line" class="input-line" style="display: none;"><span class="prompt">USER@MAGPIE:></span>
+                    <input type="text" id="cli-input" autofocus spellcheck="false" autocomplete="off">
+                </div>
+            </section>
+        </div>
+        <script src="js/cli/cli.js"></script>
+    </body>
+ </html>
