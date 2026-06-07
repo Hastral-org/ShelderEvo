@@ -38,13 +38,82 @@ Develop a new prototypal client for [MAGPIE_Server](../../MAGPIE_Server/README.m
 - [ ] MISSION 2: PREP -- prepare an implementation plan
   - [x] TASK: use [INTEL](../docs/intel.md) to update this plan
   - [x] TASK: schedule work within June 8th 08:00 deadline
-    - [ ] STEP: RMMZ bootstrap -- Saturday 08:00 => 13:00
+    - [x] STEP: RMMZ bootstrap -- Saturday 08:00 => 13:00
     - [ ] STEP: RMMZ import legacy logic -- Saturday 16:00 => 20:00
     - [ ] STEP: RMMZ socket sync -- Saturday 23:00 => Sunday 05:00
     - [ ] STEP: RMMZ card mechanics -- Sunday 10:00 => 20:00
     - [ ] STEP: RMMZ playtesting -- Sunday 23:00 => Monday 07:00
     - [ ] STEP: client publish -- Monday 07:00 => Monday 08:00
   - [x] TASK: allocate resources
+    - [ ] 08:00 => 09:00 | cleanup RMMZ database
+    - [x] 09:00 => 10:00 | player account setup
+      - [x] registration
+      - [x] login
+      - [x] player stats
+      - [x] creature slots
+    - [ ] 10:00 => 12:00 | creature adoption
+      - [ ] creature creation
+      - [ ] creature/player affinity
+      - [ ] starter decks
+      - [ ] booster packs
+      - [ ] trait generation minigame
+    - [ ] 12:00 => 13:00 | lunch break
+    - [ ] 13:00 => 16:00 | client setup
+      - [ ] login to map scene
+      - [ ] map scene to battle
+      - [ ] battle to map scene
+      - [ ] map scene to logout
+      - [ ] menu to web link
+      - [ ] web link to client
+    - [ ] 16:00 => 16:30 | afternoon break
+    - [ ] 16:30 => 20:00 | battle scene
+      - [ ] onBattleEnter
+      - [ ] socket sync & deck setup
+      - [ ] deck load
+      - [ ] zone load
+      - [ ] CGC onStart
+      - [ ] CGC TurnStart
+      - [ ] turnStart socket sync
+      - [ ] onClientCardSelection
+      - [ ] onServerCardAction
+      - [ ] onSelectionAccepted
+      - [ ] onSelectionRefused
+      - [ ] onClientEXPpack
+      - [ ] onServerEXPreceived
+      - [ ] onServerEXPsent
+      - [ ] onClientEXPunpack
+    - [ ] 20:00 => 22:00 | dinner break
+    - [ ] 22:00 => 03:00 | map scene
+      - [ ] onLoginSuccessful
+      - [ ] onBattleExit
+      - [ ] onClientTerritorySelection
+      - [ ] onServerTerritoryData
+      - [ ] onClientTerritorySelected
+      - [ ] onServerTerritoryEntered
+      - [ ] onServerTerritoryRefused
+      - [ ] onClientTerritoryMigration
+      - [ ] onServerTerritoryMigrated
+      - [ ] onClientMenu
+      - [ ] onServerMenuData
+      - [ ] onClientLogout
+      - [ ] onSocketDisconnect
+      - [ ] onServerMessage
+      - [ ] onClientMessage
+    - [ ] 03:00 => 05:00 | playtesting & debugging
+    - [ ] 05:00 => 07:00 | assets allocation
+      - [ ] audio bgm
+      - [ ] audio bgs
+      - [ ] audio me
+      - [ ] audio se
+      - [ ] sprite cards
+      - [ ] sprite actors
+      - [ ] UI
+      - [ ] CLI
+    - [ ] 07:00 => 08:00 | export and upload
+      - [ ] client app package
+      - [ ] itch.io upload
+      - [ ] domain client download link
+      - [ ] marketing post
 
 ---
 
@@ -79,7 +148,7 @@ Develop a new prototypal client for [MAGPIE_Server](../../MAGPIE_Server/README.m
 
 ---
 
-- [ ] MISSION 5: RMMZ bootstrap
+- [ ] MISSION 5: RMMZ client app
   - [x] TASK: Initialize RMMZ project structure and NWjs environment
   - [ ] TASK: Implement Handoff Logic in `js/plugins/app/handler.js`
     - [ ] STEP: Implement `localStorage` write for `jwt_token` and `playerID` (B.4)
@@ -87,11 +156,14 @@ Develop a new prototypal client for [MAGPIE_Server](../../MAGPIE_Server/README.m
     - [ ] STEP: Implement boot guard to redirect to CLI login if token is missing (B.6)
   - [ ] TASK: Verify NWjs filesystem access for local caching/persistence
   - [ ] TASK: Integrate `handler.js` into RMMZ boot sequence (`main.js`)
+  - [ ] TASK: @todo `$PDL.sceneLoad`
+
+---
 
 - [ ] MISSION 6: RMMZ legacy logic (Thin-Client Conversion)
-  - [ ] TASK: Implement `js/plugins/app/sheldex.js`
-    - [ ] STEP: Port `MAGPIE.KEY` constants for local lookup
-    - [ ] STEP: Map constants to RMMZ database identifiers
+  - [x] TASK: Implement `js/plugins/app/sheldex.js`
+    - [x] STEP: Port `MAGPIE.KEY` constants for local lookup
+    - [x] STEP: Map constants to RMMZ database identifiers
   - [ ] TASK: Implement `js/plugins/app/creature.js`
     - [ ] STEP: Import legacy `Game_Creature` logic to server
     - [ ] STEP: import legacy `Game_Creatre` rendering integration
@@ -146,3 +218,12 @@ The generation process is a literal assembly of the creature's starting deck, co
 - **The Flow**: `Surgical Socket Feed` $\rightarrow$ `Sifting/Swapping UI` $\rightarrow$ `Final Seal` $\rightarrow$ `Creature Spawn`.
 - **Scene Control**: Server-driven. All gameplay transitions (Battle, Adoption, Map) are triggered by server state. Only the Main Menu is client-autonomous.
 - **Surgical Sync**: Socket Hub decomposes feeds into specialized packages to minimize traffic and maintain laser-focus on the current task.
+
+---
+
+### 🐤 Creature Growth
+
+- @audit `.getGrowthStage()` from [ShelderEvo_core_old.js](../js/plugins/ShelderEvo_core_old.js)
+- @audit sources of `SECore.attemptDice()` from [ShelderEvo_core_old.js](../js/plugins/ShelderEvo_core_old.js)
+
+---

@@ -80,10 +80,14 @@ body {
 /* terminal output area */
 #terminal-output {
     height: calc(100% - 40px);
+    width: calc(100% - 10);
     overflow-y: auto;
+    overflow-x: hidden;
     margin-bottom: 10px;
     text-shadow: 0 0 5px var(--crt-green);
     scrollbar-width: none; /* firefox */
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 
 #terminal-output::-webkit-scrollbar {
@@ -122,4 +126,17 @@ body {
 .prompt {
     color: var(--crt-green);
     white-space: nowrap;
+}
+
+.cli-separator {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    font-family: monospace;
+    color: var(--crt-green)
+}
+
+.cli-separator::after {
+    content: "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
 }
