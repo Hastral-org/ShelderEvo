@@ -11,12 +11,16 @@ rmmz_core.js
 rmmz_managers.js
 rmmz_objects.js
 rmmz_scenes.js
-rmmz_scenes.js
 rmmz_sprites.js
 rmmz_windows.js
 main.js
 plugins.js
 node_modules/
 swiftshader/
-js/
 **/plugins
+# RMMZ engine files (third-party, not tracked)
+js/libs/
+js/rmmz_*.js
+js/main.js
+js/plugins.js
+# Track js/plugins/app/ — Rory's custom files
