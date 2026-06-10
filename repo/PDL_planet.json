@@ -1,0 +1,267 @@
+{
+    "name": "Planets",
+    "nextPool": 0,
+    "pools": [
+        {
+            "isAvailable": true,
+            "nextSlot": 8,
+            "@": "MAGPIE_EntityPool",
+            "entities": [
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Shelder",
+                    "_regions": [
+                        [
+                            "region",
+                            0,
+                            "South West Primeria"
+                        ]
+                    ],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "planet",
+                            0,
+                            "Shelder"
+                        ],
+                        "_apo": 127889319000,
+                        "_peri": 123839010000,
+                        "@": "Game_Orbit",
+                        "_period": 292.119,
+                        "_direction": true,
+                        "_inc": 0,
+                        "_ecc": 0.01609,
+                        "_semiMajorAxis": 125864164500
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "_type": "planet",
+                    "ID": 0,
+                    "@": "Game_Planet",
+                    "_satellites": [
+                        [
+                            "moon",
+                            0,
+                            "Shelyn"
+                        ]
+                    ],
+                    "_radius": 6328,
+                    "_mass": 0.988,
+                    "_gravity": 1.001,
+                    "_axialTilt": 23.44,
+                    "_rotationPeriod": 23.9334,
+                    "_atmosphere": {
+                        "_parent": [
+                            "planet",
+                            0,
+                            "Shelder"
+                        ],
+                        "_pressure": 1,
+                        "_composition": {
+                            "oxygen": 20.99,
+                            "carbonDioxide": 0.04,
+                            "argon": 0.93,
+                            "nitrogen": 78.04
+                        },
+                        "_density": 1.221,
+                        "_cells": [
+                            [
+                                0,
+                                30
+                            ],
+                            [
+                                30,
+                                60
+                            ],
+                            [
+                                60,
+                                90
+                            ]
+                        ],
+                        "@": "Game_Atmosphere"
+                    }
+                },
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Solastra",
+                    "_regions": [],
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "_type": "planet",
+                    "ID": 1,
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "planet",
+                            1,
+                            "Solastra"
+                        ],
+                        "_apo": 35903488968,
+                        "_peri": 35903488968,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 35903488968
+                    },
+                    "@": "Game_Planet",
+                    "_satellites": []
+                },
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Halos",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "planet",
+                            2,
+                            "Halos"
+                        ],
+                        "_apo": 80782850178,
+                        "_peri": 80782850178,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 80782850178
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "_type": "planet",
+                    "ID": 2,
+                    "@": "Game_Planet",
+                    "_satellites": []
+                },
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Ignis",
+                    "_type": "planet",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "planet",
+                            3,
+                            "Ignis"
+                        ],
+                        "_apo": 215420933808,
+                        "_peri": 215420933808,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 215420933808
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "ID": 3,
+                    "@": "Game_Planet",
+                    "_satellites": []
+                },
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Olympus",
+                    "_type": "planet",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "planet",
+                            4,
+                            "Olympus"
+                        ],
+                        "_apo": 753973268328,
+                        "_peri": 753973268328,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 753973268328
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "ID": 4,
+                    "@": "Game_Planet",
+                    "_satellites": []
+                },
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Sarquola",
+                    "_type": "planet",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "planet",
+                            5,
+                            "Sarquola"
+                        ],
+                        "_apo": 1472043047688,
+                        "_peri": 1472043047688,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 1472043047688
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "ID": 5,
+                    "@": "Game_Planet",
+                    "_satellites": []
+                },
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Cryona",
+                    "_type": "planet",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "planet",
+                            6,
+                            "Cryona"
+                        ],
+                        "_apo": 5780461723848,
+                        "_peri": 5780461723848,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 5780461723848
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "ID": 6,
+                    "@": "Game_Planet",
+                    "_satellites": []
+                },
+                {
+                    "meta": "Game_Planet",
+                    "_name": "Ixion",
+                    "_type": "planet",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": "Ixion",
+                        "_parentType": "planet",
+                        "_apo": 7574140193541,
+                        "_peri": 7574140193541,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 7574140193541
+                    },
+                    "_orbits": [],
+                    "ID": 7,
+                    "@": "Game_Planet"
+                }
+            ]
+        }
+    ],
+    "poolSize": 1000,
+    "totalSize": 8,
+    "@": "MAGPIE_EntityDatabase"
+}

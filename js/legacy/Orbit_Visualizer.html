@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Keplerian Orbit Visualizer</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #0d1117; /* dark background for space theme */
+                color: #c9d1d9;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem;
+            }
+            #visualization-container {
+                width: 100%;
+                max-width: 900px;
+                background-color: #161b22;
+                border-radius: 12px;
+                box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
+                overflow: hidden;
+            }
+            #orbitCanvas {
+                border: 1px solid #30363d;
+                background-color: #0d1117;
+                touch-action: none; /* disable default touch actions for better canvas interaction */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="visualization-container" class="p-4 md:p-6">
+            <h1 class="text-x1 md:text-2x1 font-bold mb-4 text-center">Planetary Orbit Simulation</h1>
+            <p class="text-sm text-center mb-4 text-gray-400">Time is scaled to show the orbit clearly. Eccentricity (e=0.4) creates the visible elliptical shape</p>
+
+            <!-- Canvas for the visualization -->
+             <canvas id="orbitCanvas"></canvas>
+
+             <!-- Status and Controls -->
+              <div id="timeDisplay" class="p-3 bg-gray-700 rounded-lg shadow-inner">
+                <span class="font-semibold text-gray-300">Elapsed Time:</span> 0.00 s
+              </div>
+              <div id="distanceDisplay" class="p-3 bg-gray-700 rounded-lg shadow-inner">
+                <span class="font-semibold text-gray-300">Distance (R):</span> 0.00 x 10¹¹ m
+              </div>
+        </div>
+
+        <script src="MAGPIE_Geography.js"></script>
+        <script src="orbit_visualizer.js">init()</script>
+    </body>
+</html>

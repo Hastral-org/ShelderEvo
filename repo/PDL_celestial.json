@@ -1,0 +1,72 @@
+{
+    "name": "Unidentified celestial bodies",
+    "nextPool": 0,
+    "pools": [
+        {
+            "isAvailable": true,
+            "nextSlot": 2,
+            "@": "MAGPIE_EntityPool",
+            "entities": [
+                {
+                    "meta": "Game_AsteroidBelt",
+                    "_name": "Shel Asteroid Belt",
+                    "_type": "celestial",
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "celestial",
+                            0,
+                            "Shel Asteroid Belt"
+                        ],
+                        "_apo": 394938378648,
+                        "_peri": 394938378648,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 394938378648
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "ID": 0,
+                    "@": "Game_AsteroidBelt",
+                    "_satellites": []
+                },
+                {
+                    "meta": "Game_KuiperBelt",
+                    "_name": "Shel Kuiper Belt",
+                    "_type": "celestial",
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "celestial",
+                            1,
+                            "Shel Kuiper Belt"
+                        ],
+                        "_apo": 7574140193541,
+                        "_peri": 7574140193541,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 7574140193541
+                    },
+                    "_parent": [
+                        "star",
+                        0,
+                        "Shel"
+                    ],
+                    "ID": 1,
+                    "@": "Game_KuiperBelt",
+                    "_satellites": [
+                        [
+                            "planet",
+                            7,
+                            "Ixion"
+                        ]
+                    ]
+                }
+            ]
+        }
+    ],
+    "poolSize": 1000,
+    "totalSize": 2,
+    "@": "MAGPIE_EntityDatabase"
+}

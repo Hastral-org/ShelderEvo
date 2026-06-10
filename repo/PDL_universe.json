@@ -1,0 +1,67 @@
+{
+    "meta": "Game_Universe",
+    "@": "Game_Universe",
+    "Shel": {
+        "meta": "Game_StarSystem",
+        "_name": "Shel system",
+        "_celestials": [
+            [
+                "star",
+                0,
+                "Shel"
+            ],
+            [
+                "planet",
+                1,
+                "Solastra"
+            ],
+            [
+                "planet",
+                2,
+                "Halos"
+            ],
+            [
+                "planet",
+                0,
+                "Shelder"
+            ],
+            [
+                "planet",
+                3,
+                "Ignis"
+            ],
+            [
+                "celestial",
+                0,
+                "Shel Asteroid Belt"
+            ],
+            [
+                "planet",
+                4,
+                "Olympus"
+            ],
+            [
+                "planet",
+                5,
+                "Sarquola"
+            ],
+            [
+                "planet",
+                6,
+                "Cryona"
+            ],
+            [
+                "celestial",
+                1,
+                "Shel Kuiper Belt"
+            ]
+        ],
+        "@": "Game_StarSystem",
+        "_frostLine": 4.204,
+        "_spacingFactor": 0.3,
+        "_debrisDisk": [
+            50.63,
+            61.34
+        ]
+    }
+}

@@ -1,0 +1,4660 @@
+{
+    "_totalSize": 209,
+    "nextPool": 0,
+    "pools": [
+        {
+            "isAvailable": true,
+            "nextSlot": 209,
+            "entities": [
+                {
+                    "_name": "Nation",
+                    "_sector": 4,
+                    "_requirements": [
+                        2,
+                        187,
+                        188,
+                        189,
+                        190
+                    ],
+                    "_components": [],
+                    "_recipes": [
+                        191,
+                        192,
+                        193,
+                        194
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "ID": 0,
+                    "@": "MAGPIE_Commodity",
+                    "_prototype": "MAGPIE_Organisation"
+                },
+                {
+                    "_name": "M.A.G.P.I.E. Mainframe",
+                    "_sector": 4,
+                    "_category": 17,
+                    "_requirements": [],
+                    "_components": [
+                        "General Purpose A.I.",
+                        "Specialized Electronics",
+                        "Mind Digitalization"
+                    ],
+                    "_recipes": [
+                        "MAICU",
+                        "SAICU",
+                        "DAICU",
+                        "ShelderEvo",
+                        "Avatar Policy"
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "ID": 1,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Society",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [],
+                    "_components": [
+                        3,
+                        "Advanced Market",
+                        "Optimized Industrial Chain",
+                        60,
+                        5
+                    ],
+                    "_recipes": [
+                        "Nation",
+                        0
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Organisation",
+                    "ID": 2,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Labor Union",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        4,
+                        17,
+                        56,
+                        33
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Organisation",
+                    "ID": 3,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Labor",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        5
+                    ],
+                    "_components": [],
+                    "_recipes": [
+                        3
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 4,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Population",
+                    "_sector": 0,
+                    "_category": 1,
+                    "_requirements": [
+                        6,
+                        7
+                    ],
+                    "_components": [],
+                    "_recipes": [
+                        4
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Organisation",
+                    "ID": 5,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Habitat",
+                    "_sector": 4,
+                    "_category": 13,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 6,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Person",
+                    "_sector": 0,
+                    "_category": 7,
+                    "_requirements": [
+                        8,
+                        11,
+                        12,
+                        13
+                    ],
+                    "_components": [
+                        16
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 7,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Infant",
+                    "_sector": 0,
+                    "_category": 7,
+                    "_requirements": [
+                        6,
+                        9
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 8,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Alignment",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        10
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "ID": 9,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Value",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "ID": 10,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Juvenile",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        6,
+                        9
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 11,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Adolescent",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        6,
+                        9
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 12,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Adult",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        6,
+                        9
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 13,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Adult",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        6,
+                        9
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 14,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Elder",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        6,
+                        9
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 15,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Character Path",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        9
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "ID": 16,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Heavy-duty Labor",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        18,
+                        "Basic Lodging"
+                    ],
+                    "_components": [
+                        4
+                    ],
+                    "_recipes": [
+                        3
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 17,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Heavy-duty Utensils",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        19,
+                        83,
+                        71,
+                        67
+                    ],
+                    "_components": [
+                        45
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 18,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Processing Factory",
+                    "_sector": 3,
+                    "_category": 8,
+                    "_requirements": [
+                        20,
+                        29,
+                        30
+                    ],
+                    "_components": [
+                        4
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 19,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Building Supplies",
+                    "_sector": 2,
+                    "_category": 5,
+                    "_requirements": [],
+                    "_components": [
+                        21,
+                        45
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 20,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Construction Material",
+                    "_sector": 2,
+                    "_category": 5,
+                    "_requirements": [
+                        22,
+                        27
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 21,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Mineral Ore",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        23,
+                        24
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 22,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Common Ore Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 23,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Improvised Mining Facilities",
+                    "_sector": 3,
+                    "_category": 4,
+                    "_requirements": [
+                        4,
+                        25
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 24,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Improvised Utensils",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        26,
+                        4
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 25,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Forestry",
+                    "_sector": 0,
+                    "_category": 1,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 26,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Improvised Chemical Plant",
+                    "_sector": 3,
+                    "_category": 8,
+                    "_requirements": [
+                        28,
+                        25
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 27,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Chemical Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "ID": 28,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Building Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [
+                        20,
+                        4
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 29,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Freight Station",
+                    "_sector": 3,
+                    "_category": 10,
+                    "_requirements": [
+                        31,
+                        33,
+                        35,
+                        37,
+                        54
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 30,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Local Infrastructure Maintenance",
+                    "_sector": 3,
+                    "_category": 10,
+                    "_requirements": [
+                        32,
+                        29,
+                        "Technician"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 31,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Transit Expertise",
+                    "_sector": 3,
+                    "_category": 10,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 32,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Workforce Coordination",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        34
+                    ],
+                    "_components": [],
+                    "_recipes": [
+                        3
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 33,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic ICT Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 34,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Equipment Readiness",
+                    "_sector": 3,
+                    "_category": 6,
+                    "_requirements": [
+                        36,
+                        33,
+                        "Equipment Maintenance",
+                        4
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "ID": 35,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Equipment Shelter",
+                    "_sector": 3,
+                    "_category": 5,
+                    "_requirements": [
+                        29
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 36,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Storage Facilities",
+                    "_sector": 3,
+                    "_category": 10,
+                    "_requirements": [
+                        38,
+                        29
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 37,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Storage",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        39,
+                        4,
+                        "Livestock products",
+                        "Wood products"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 38,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Fabric",
+                    "_sector": 2,
+                    "_category": 11,
+                    "_requirements": [
+                        40,
+                        4,
+                        45
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 39,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Textiles",
+                    "_sector": 1,
+                    "_category": 11,
+                    "_requirements": [
+                        41,
+                        42
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 40,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Fertile Land",
+                    "_sector": 0,
+                    "_category": 1,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 41,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Improvised Farm",
+                    "_sector": 3,
+                    "_category": 1,
+                    "_requirements": [
+                        43,
+                        4
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 42,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Improvised Farming Supplies",
+                    "_sector": 3,
+                    "_category": 1,
+                    "_requirements": [
+                        26,
+                        25,
+                        44
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 43,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Fresh Water",
+                    "_sector": 0,
+                    "_category": 15,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 44,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Utensils",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        46,
+                        47,
+                        4
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 45,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Wood Products",
+                    "_sector": 2,
+                    "_category": 1,
+                    "_requirements": [
+                        26,
+                        25,
+                        4
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 46,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Simple Metals",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        48,
+                        27
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 47,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Metal Ore",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        49,
+                        24
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 48,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Metal Ore Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 49,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Livestock Products",
+                    "_sector": 2,
+                    "_category": 1,
+                    "_requirements": [
+                        51
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 50,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Livestock",
+                    "_sector": 0,
+                    "_category": 1,
+                    "_requirements": [
+                        42,
+                        52
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 51,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Livestock Supplies",
+                    "_sector": 2,
+                    "_category": 1,
+                    "_requirements": [
+                        26,
+                        53
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 52,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Husbandry Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        4,
+                        25
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 53,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Quartermaster",
+                    "_sector": 4,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [
+                        55
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 54,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Logistics Personnel",
+                    "_sector": 4,
+                    "_category": 10,
+                    "_requirements": [],
+                    "_components": [
+                        56
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 55,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Specialized Labor",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        57,
+                        60,
+                        "Specialized Utensils",
+                        "Crew"
+                    ],
+                    "_components": [],
+                    "_recipes": [
+                        3
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 56,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Recruitment Office",
+                    "_sector": 4,
+                    "_category": 6,
+                    "_requirements": [
+                        58,
+                        34
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 57,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Operations Office",
+                    "_sector": 3,
+                    "_category": 6,
+                    "_requirements": [
+                        59
+                    ],
+                    "_components": [
+                        33,
+                        4
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 58,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Leadership Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 59,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Advanced Lodging",
+                    "_sector": 4,
+                    "_category": 13,
+                    "_requirements": [
+                        61,
+                        63,
+                        "Basic Public Services",
+                        "Transit Hub"
+                    ],
+                    "_components": [
+                        6
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 60,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "University",
+                    "_sector": 3,
+                    "_category": 19,
+                    "_requirements": [
+                        34
+                    ],
+                    "_components": [
+                        62,
+                        58
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 61,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Library",
+                    "_sector": 4,
+                    "_category": 2,
+                    "_requirements": [
+                        38,
+                        4,
+                        34
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 62,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Advanced Building Expertise",
+                    "_sector": 4,
+                    "_category": 2,
+                    "_requirements": [
+                        29,
+                        64,
+                        61,
+                        "Scientist"
+                    ],
+                    "_components": [
+                        "Advanced Building Supplies",
+                        17
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 63,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Advanced Mining Facilities",
+                    "_sector": 3,
+                    "_category": 4,
+                    "_requirements": [
+                        65,
+                        33,
+                        "Advanced Prospecting",
+                        30,
+                        17
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 64,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Advanced Mining Supplies",
+                    "_sector": 2,
+                    "_category": 4,
+                    "_requirements": [
+                        66,
+                        18,
+                        "Industrial Machinery",
+                        "Basic Generator",
+                        "Mining Drill"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 65,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Advanced Storage",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        67,
+                        19,
+                        18,
+                        86
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 66,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Heavy-duty Mechanical Parts",
+                    "_sector": 2,
+                    "_category": 9,
+                    "_requirements": [
+                        68,
+                        19
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 67,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Advanced Mechanical Parts",
+                    "_sector": 2,
+                    "_category": 9,
+                    "_requirements": [
+                        69,
+                        19,
+                        "Advanced Mechanical Expertise"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 68,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Mechanical Parts",
+                    "_sector": 2,
+                    "_category": 9,
+                    "_requirements": [
+                        70,
+                        71,
+                        "Basic Mechanical Expertise"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 69,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Refined Metals",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        48,
+                        71,
+                        72
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 70,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Refined Minerals",
+                    "_sector": 2,
+                    "_category": 9,
+                    "_requirements": [
+                        22,
+                        72,
+                        74
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 71,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Chemical Plant",
+                    "_sector": 3,
+                    "_category": 8,
+                    "_requirements": [
+                        29,
+                        28
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 72,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Chemical Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 73,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Rare Minerals",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        75,
+                        76,
+                        77
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 74,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Rare Ore Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 75,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Industrial Prospecting",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        45,
+                        34,
+                        33,
+                        "Basic Geology Expertise",
+                        "Basic Industrial Expertise"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Organisation",
+                    "ID": 76,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Mining Facilities",
+                    "_sector": 3,
+                    "_category": 4,
+                    "_requirements": [
+                        76,
+                        37,
+                        80
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 77,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Mining Supplies",
+                    "_sector": 2,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [
+                        38,
+                        "Basic Utentils"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 78,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Miner",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [
+                        4
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 79,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Mining Expertise",
+                    "_sector": 3,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [
+                        79,
+                        78
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 80,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Mechanics Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        88
+                    ],
+                    "_components": [
+                        82,
+                        18
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 81,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Mechanic",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [
+                        17
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 82,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Blacksmithing Expertise",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [
+                        84
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 83,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Blacksmith",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [
+                        4
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 84,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Advanced Mechanics Expertise",
+                    "_sector": 4,
+                    "_category": 2,
+                    "_requirements": [
+                        81,
+                        86,
+                        19,
+                        61,
+                        "Scientist"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 85,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Engineering Expertise",
+                    "_sector": 3,
+                    "_category": 9,
+                    "_requirements": [
+                        88
+                    ],
+                    "_components": [
+                        87
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 86,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Engineer",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [],
+                    "_components": [
+                        4
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "ID": 87,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Workshop",
+                    "_sector": 2,
+                    "_category": 2,
+                    "_requirements": [
+                        29
+                    ],
+                    "_components": [
+                        45
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "ID": 88,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Asteroid",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "ID": 89,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "C-type Asteroid",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        89
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "Composition": [
+                            [
+                                "Water Ice",
+                                5,
+                                10
+                            ],
+                            [
+                                "Hydrates",
+                                0.5,
+                                1
+                            ],
+                            [
+                                "Silicates",
+                                40,
+                                50
+                            ],
+                            [
+                                "Organic Compounds",
+                                5,
+                                10
+                            ],
+                            [
+                                "Metal Ore",
+                                0.1,
+                                0.5
+                            ],
+                            [
+                                "Rare Metals",
+                                0.01,
+                                0.1
+                            ],
+                            [
+                                "Exotic Minerals",
+                                0.001,
+                                0.01
+                            ],
+                            [
+                                "Uraninite",
+                                0.001,
+                                0.01
+                            ],
+                            [
+                                "Rare Minerals",
+                                0.1,
+                                1
+                            ]
+                        ],
+                        "Description": [
+                            "Please note that these are just estimates, \n\t\t\tand the actual amount of each resource type \n\t\t\tin any given C-type asteroid can vary greatly. \n\t\t\tThe composition of asteroids can change over \n\t\t\ttime due to collisions, fragmentation, and \n\t\t\tother processes.",
+                            "Here is a more detailed breakdown of each resource type:",
+                            "Water ice: is the most abundant resource in C-type asteroids.\n\t\t\tIt is thought to make up about 5-10% of the mass of these \n\t\t\tasteroids. Water ice could be used for drinking water, \n\t\t\tirrigation, and industrial purposes. It could also be used \n\t\t\tto make rocket fuel and hydrogen peroxide.",
+                            "Hydrates: minerals that contain water molecules bound \n\t\t\tto their crystal structure. They are thought to make up \n\t\t\tabout 0.5-1% of the mass of C-type asteroids. Hydrates \n\t\t\tcould be a source of water and other valuable minerals.",
+                            "Silicate minerals: the most common type of mineral in \n\t\t\tthe standard solar system. They are thought to make up about \n\t\t\t40-50% of the mass of C-type asteroids. Silicate minerals \n\t\t\tcould be used to make cement, glass, and other materials.",
+                            "Organic compounds: carbon-based molecules that can form \n\t\t\tthe basis of life. They are thought to make up about 5-10% \n\t\t\tof the mass of C-type asteroids. Organic compounds could be \n\t\t\tused to make fuels, plastics, and pharmaceuticals.",
+                            "Metallic ore is a mixture of metals, such as iron, nickel, \n\t\t\tand cobalt. It is thought to make up about 0.1-0.5% of the \n\t\t\tmass of C-type asteroids. Metallic ore could be used to make \n\t\t\tsteel, aluminum, and other alloys.",
+                            "Nitrates: salts that contain the nitrate ion (NO3-). They \n\t\t\tare thought to make up about 0.1-0.5% of the mass of C-type \n\t\t\tasteroids. Nitrates are an essential nutrient for plants, \n\t\t\tand they could be used to fertilize crops or to produce biofuels.",
+                            "Rare metals: metals that are not as common as iron, nickel, \n\t\t\tand cobalt. They are thought to make up about 0.01-0.1% of the \n\t\t\tmass of C-type asteroids. Rare metals are used in a wide variety \n\t\t\tof applications, including electronics, aerospace, and medicine.",
+                            "Exotic minerals: minerals that have unusual properties or \n\t\t\tcompositions. They are thought to make up about 0.01-0.1% of \n\t\t\tthe mass of C-type asteroids. Exotic minerals could be used in \n\t\t\tnew technologies or for scientific research.",
+                            "Uraninite: a mineral that contains uranium, a radioactive \n\t\t\telement. It is thought to make up about 0.001-0.01% of the \n\t\t\tmass of C-type asteroids. Uraninite could be used to generate \n\t\t\telectricity or to produce radioactive isotopes for medical and \n\t\t\tindustrial purposes.",
+                            "Others: possible resources that could be found in C-type \n\t\t\tasteroids, such as sulfur, iodine, and phosphorus. These \n\t\t\tresources could be used in a variety of applications, \n\t\t\tincluding agriculture, medicine, and chemical manufacturing."
+                        ]
+                    },
+                    "ID": 90,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "S-type Asteroid",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        89
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "Composition": [
+                            [
+                                "Water Ice",
+                                0,
+                                5
+                            ],
+                            [
+                                "Hydrates",
+                                0,
+                                1
+                            ],
+                            [
+                                "Silicates",
+                                40,
+                                50
+                            ],
+                            [
+                                "Organic Compounds",
+                                0,
+                                10
+                            ],
+                            [
+                                "Metal Ore",
+                                1,
+                                5
+                            ],
+                            [
+                                "Nitrates",
+                                0,
+                                0.5
+                            ],
+                            [
+                                "Rare Metals",
+                                0.01,
+                                0.1
+                            ],
+                            [
+                                "Exotic Minerals",
+                                0.01,
+                                0.1
+                            ],
+                            [
+                                "Uraninite",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Rare Minerals",
+                                0.1,
+                                1
+                            ],
+                            [
+                                "Pyroxene",
+                                15,
+                                25
+                            ],
+                            [
+                                "Plagioclase",
+                                10,
+                                20
+                            ],
+                            [
+                                "Olivine",
+                                10,
+                                20
+                            ]
+                        ]
+                    },
+                    "ID": 91,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "M-type Asteroid",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        89
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "Composition": [
+                            [
+                                "Water Ice",
+                                0,
+                                5
+                            ],
+                            [
+                                "Hydrates",
+                                0,
+                                1
+                            ],
+                            [
+                                "Silicates",
+                                0,
+                                5
+                            ],
+                            [
+                                "Organic Compounds",
+                                0,
+                                5
+                            ],
+                            [
+                                "Metal Ore",
+                                70,
+                                80
+                            ],
+                            [
+                                "Nitrates",
+                                0,
+                                0.1
+                            ],
+                            [
+                                "Rare Metals",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Exotic Minerals",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Uraninite",
+                                0,
+                                0.01
+                            ]
+                        ]
+                    },
+                    "ID": 92,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "E-type Asteroid",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        89
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "Composition": [
+                            [
+                                "Water Ice",
+                                0,
+                                1
+                            ],
+                            [
+                                "Hydrates",
+                                0,
+                                0.5
+                            ],
+                            [
+                                "Silicates",
+                                45,
+                                60
+                            ],
+                            [
+                                "Organic Compounds",
+                                0,
+                                5
+                            ],
+                            [
+                                "Metal Ore",
+                                10,
+                                20
+                            ],
+                            [
+                                "Nitrates",
+                                0,
+                                0.1
+                            ],
+                            [
+                                "Rare Metals",
+                                0.001,
+                                0.01
+                            ],
+                            [
+                                "Exotic Minerals",
+                                0.001,
+                                0.01
+                            ],
+                            [
+                                "Uraninite",
+                                0.001,
+                                0.01
+                            ],
+                            [
+                                "Enstatite",
+                                45,
+                                60
+                            ]
+                        ]
+                    },
+                    "ID": 93,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "V-type Asteroid",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        89
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "Composition": [
+                            [
+                                "Water Ice",
+                                10,
+                                20
+                            ],
+                            [
+                                "Hydrates",
+                                0,
+                                0
+                            ],
+                            [
+                                "Silicates",
+                                20,
+                                30
+                            ],
+                            [
+                                "Organic Compounds",
+                                5,
+                                10
+                            ],
+                            [
+                                "Metal Ore",
+                                10,
+                                20
+                            ],
+                            [
+                                "Nitrates",
+                                1,
+                                5
+                            ],
+                            [
+                                "Rare Metals",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Exotic Minerals",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Uraninite",
+                                0,
+                                0
+                            ],
+                            [
+                                "Methane Ice",
+                                2,
+                                5
+                            ],
+                            [
+                                "Ammonia Ice",
+                                0.5,
+                                1
+                            ],
+                            [
+                                "Carbon Dioxide Ice",
+                                0.1,
+                                0.5
+                            ]
+                        ]
+                    },
+                    "ID": 94,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "P-type Asteroid",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        89
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "Composition": [
+                            [
+                                "Water Ice",
+                                10,
+                                20
+                            ],
+                            [
+                                "Hydrates",
+                                0,
+                                0
+                            ],
+                            [
+                                "Silicates",
+                                30,
+                                40
+                            ],
+                            [
+                                "Organic Compounds",
+                                0,
+                                10
+                            ],
+                            [
+                                "Metal Ore",
+                                10,
+                                20
+                            ],
+                            [
+                                "Nitrates",
+                                0.5,
+                                1
+                            ],
+                            [
+                                "Rare Metals",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Exotic Minerals",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Uraninite",
+                                0,
+                                0.01
+                            ],
+                            [
+                                "Methane Ice",
+                                0.5,
+                                1
+                            ],
+                            [
+                                "Ammonia Ice",
+                                0,
+                                5
+                            ],
+                            [
+                                "Carbon Dioxide Ice",
+                                0,
+                                1
+                            ]
+                        ]
+                    },
+                    "ID": 95,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Asteroid Belt",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [
+                        89
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 96,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Coal Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [
+                        22
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        23
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 97,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Common Ore Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 98,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Exotic Ore Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 99,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Game",
+                    "_sector": 0,
+                    "_category": 1,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "_contents": {},
+                    "ID": 100,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Gas Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 101,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Herbs",
+                    "_sector": 0,
+                    "_category": 1,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 102,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Nitratine",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 103,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 2.26
+                },
+                {
+                    "_name": "Oil Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 104,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Organic Compounds",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 105,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Point Of Interest",
+                    "_sector": 0,
+                    "_category": 13,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 106,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Rare Ore Deposit",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 107,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Asteroid Rock",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        89
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 108,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Solar Radiation",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 109,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Tropical Land",
+                    "_sector": 0,
+                    "_category": 1,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        41
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 110,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Wind Power",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 111,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Alumina Processing",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        "Bauxite Processing"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 112,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Ammonia",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 113,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 0.000769
+                },
+                {
+                    "_name": "Asteroid Ice",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        "Orbital Mining Facilities",
+                        96
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 114,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 0.9
+                },
+                {
+                    "_name": "Basic Resources",
+                    "_sector": 1,
+                    "_category": 7,
+                    "_requirements": [
+                        49,
+                        23,
+                        75,
+                        26,
+                        44
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 115,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Beryllium",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [
+                        127
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 116,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 1.85
+                },
+                {
+                    "_name": "Borate Processing",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [
+                        130
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 117,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Boron",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        117
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 118,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 2.34
+                },
+                {
+                    "_name": "Carbon",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 119,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 2.26
+                },
+                {
+                    "_name": "CarbonDioxide",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        121
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdCO2",
+                            601.4
+                        ]
+                    },
+                    "ID": 120,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 0.001977
+                },
+                {
+                    "_name": "CarbonMonoxide",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [
+                        120
+                    ],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdCO",
+                            632
+                        ]
+                    },
+                    "ID": 121,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 0.00125
+                },
+                {
+                    "_name": "Coal",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        97,
+                        77
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 122,
+                    "@": "MAGPIE_Commodity",
+                    "_density": [
+                        0.8,
+                        1.5
+                    ]
+                },
+                {
+                    "_name": "Common Spices",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        42,
+                        41
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 123,
+                    "@": "MAGPIE_Commodity",
+                    "_density": [
+                        0.4,
+                        0.6
+                    ]
+                },
+                {
+                    "_name": "Crude Oil",
+                    "_sector": 1,
+                    "_category": 12,
+                    "_requirements": [
+                        104,
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 124,
+                    "@": "MAGPIE_Commodity",
+                    "_density": [
+                        0.7,
+                        0.95
+                    ]
+                },
+                {
+                    "_name": "Deuterium",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdDeuterium",
+                            902.2
+                        ]
+                    },
+                    "ID": 125,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 0.00018
+                },
+                {
+                    "_name": "Edible Herbs",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        41,
+                        42,
+                        102
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 126,
+                    "@": "MAGPIE_Commodity",
+                    "_density": [
+                        0.3,
+                        0.5
+                    ]
+                },
+                {
+                    "_name": "Exotic Minerals",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        99,
+                        17,
+                        "Specialized Mining Facilities"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 127,
+                    "@": "MAGPIE_Commodity",
+                    "_density": 2.5
+                },
+                {
+                    "_name": "Exotic Spices",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        110,
+                        "Basic Farm"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 128,
+                    "@": "MAGPIE_Commodity",
+                    "_density": [
+                        0.3,
+                        0.6
+                    ]
+                },
+                {
+                    "_name": "Exotic Minerals Processing",
+                    "_sector": 2,
+                    "_category": 4,
+                    "_requirements": [
+                        19
+                    ],
+                    "_components": [
+                        127
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {
+                        "recipe": {
+                            "IN": [
+                                [
+                                    "Exotic Minerals",
+                                    0.001
+                                ],
+                                [
+                                    "ElectricCharge",
+                                    15000
+                                ]
+                            ],
+                            "OUT": [
+                                [
+                                    "Deuterium",
+                                    "6.4 L/d"
+                                ],
+                                [
+                                    "Beryllium",
+                                    "25.9 L/d"
+                                ],
+                                [
+                                    "Lithium",
+                                    "25.9 L/d"
+                                ],
+                                [
+                                    "Silicon",
+                                    0.003
+                                ],
+                                [
+                                    "Carbon",
+                                    0.003
+                                ],
+                                [
+                                    "Aluminium",
+                                    0.003
+                                ],
+                                [
+                                    "Flourine",
+                                    0.03
+                                ],
+                                [
+                                    "Nitrogen",
+                                    0.03
+                                ],
+                                [
+                                    "Hydrogen",
+                                    0.03
+                                ],
+                                [
+                                    "Oxygen",
+                                    3
+                                ]
+                            ]
+                        }
+                    },
+                    "ID": 129,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Borate",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [
+                        74
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 0.85,
+                    "ID": 130,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Flourine",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 0.001696,
+                    "ID": 131,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Fresh Produce",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        42,
+                        41
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": [
+                        0.5,
+                        1.5
+                    ],
+                    "ID": 132,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Game Products",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        100,
+                        "Basic Butchering Expertise"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 133,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Grains",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        41,
+                        42
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 134,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Helium",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdHelium",
+                            1000
+                        ]
+                    },
+                    "_density": 0.0001785,
+                    "ID": 135,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Helium-3",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdHe3",
+                            472
+                        ]
+                    },
+                    "_density": 0.059,
+                    "ID": 136,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "HTP",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 1.431,
+                    "ID": 137,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Hydrates",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "recipe": {
+                            "IN": [
+                                [
+                                    "Hydrates",
+                                    1
+                                ],
+                                [
+                                    "ElectricCharge",
+                                    8000
+                                ]
+                            ],
+                            "OUT": [
+                                [
+                                    "LqdWater",
+                                    0.1
+                                ],
+                                [
+                                    "CarbonDioxide",
+                                    0.02
+                                ]
+                            ]
+                        }
+                    },
+                    "_density": 1.5,
+                    "ID": 138,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Hydrogen",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdHydrogen",
+                            788.1
+                        ]
+                    },
+                    "_density": 0.0008990000000000001,
+                    "ID": 139,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Lithium",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 0.534,
+                    "ID": 140,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Lithium6",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 0.46,
+                    "ID": 141,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "LqdAmmonia",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "Ammonia",
+                            0.0010952
+                        ]
+                    },
+                    "_density": 0.7021,
+                    "ID": 142,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "LqdHydrogen",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [
+                        144
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "Hydrogen",
+                            0.0012689
+                        ]
+                    },
+                    "_density": 0.07085,
+                    "ID": 143,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Water Electrolysis",
+                    "_sector": 2,
+                    "_category": 8,
+                    "_requirements": [
+                        "Advanced Research Laboratory"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {
+                        "recipe": {
+                            "IN": [
+                                [
+                                    "LqdWater",
+                                    1
+                                ],
+                                [
+                                    "ElectricCharge",
+                                    18160000
+                                ]
+                            ],
+                            "OUT": [
+                                [
+                                    "Hydrogen",
+                                    1.245
+                                ],
+                                [
+                                    "Oxygen",
+                                    0.63
+                                ]
+                            ]
+                        }
+                    },
+                    "ID": 144,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "LqdMethane",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        "Advanced Research Laboratory"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "Methane",
+                            0.00167898
+                        ]
+                    },
+                    "_density": 0.42561,
+                    "ID": 145,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "LqdNitrogen",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        "Advanced Research Laboratory"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "Nitrogen",
+                            0.00151653
+                        ]
+                    },
+                    "_density": 0.8249,
+                    "ID": 146,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "LqdOxygen",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        "Advanced Research Laboratory"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "Oxygen",
+                            0.00123579
+                        ]
+                    },
+                    "_density": 1.141,
+                    "ID": 147,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "LqdWater",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [
+                        38
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "Water Ice",
+                            0.9
+                        ]
+                    },
+                    "_density": 1,
+                    "ID": 148,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Medicinal Herbs",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        41,
+                        102,
+                        "Basic Farm"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": [
+                        0.3,
+                        0.8
+                    ],
+                    "ID": 149,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Monazite Processing",
+                    "_sector": 2,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {
+                        "recipe": {
+                            "IN": [
+                                [
+                                    "Monazite",
+                                    1
+                                ],
+                                [
+                                    "ElectricCharge",
+                                    32000
+                                ]
+                            ],
+                            "OUT": [
+                                [
+                                    "Helium",
+                                    0.01
+                                ],
+                                [
+                                    "Thorium",
+                                    0.1
+                                ]
+                            ]
+                        }
+                    },
+                    "ID": 150,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Monazite",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "_density": [
+                        4.6,
+                        5.7
+                    ],
+                    "ID": 151,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Natural Gas",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        124,
+                        101,
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 152,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Nitrates Processing",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {
+                        "recipe": {
+                            "IN": [
+                                [
+                                    "Nitratine",
+                                    1
+                                ],
+                                [
+                                    "ElectricCharge",
+                                    26000
+                                ]
+                            ],
+                            "OUT": [
+                                [
+                                    "Sodium",
+                                    0.1
+                                ],
+                                [
+                                    "Nitrogen",
+                                    0.06
+                                ],
+                                [
+                                    "Oxygen",
+                                    0.22
+                                ]
+                            ]
+                        }
+                    },
+                    "ID": 153,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Nitrogen",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        153
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdNitrogen",
+                            659.4
+                        ]
+                    },
+                    "_density": 0.001251,
+                    "ID": 154,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Oxygen",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdOxygen",
+                            809.2
+                        ]
+                    },
+                    "_density": 0.00141,
+                    "ID": 155,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Rare Metals",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        64,
+                        48
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 7.8,
+                    "ID": 156,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Regolith",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        "Extraplanetary Mining Facilities"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 2,
+                    "ID": 157,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Seeds",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        26
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 158,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Silicates",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 2.5,
+                    "ID": 159,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Sodium",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": 0.971,
+                    "ID": 160,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "SolidHydrogen",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        "Extraplanetary Mining Facilities",
+                        "Specialized Storage"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdHydrogen",
+                            1.22
+                        ]
+                    },
+                    "_density": 0.086,
+                    "ID": 161,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Spodumene Processing",
+                    "_sector": 0,
+                    "_category": 4,
+                    "_requirements": [
+                        "Extraplanetary Mining Facilities"
+                    ],
+                    "_components": [
+                        127
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {
+                        "recipe": {
+                            "IN": [
+                                [
+                                    "Spodumene",
+                                    1
+                                ],
+                                [
+                                    "ElectricCharge",
+                                    18000
+                                ]
+                            ],
+                            "OUT": [
+                                [
+                                    "LqdOxygen",
+                                    1.36
+                                ],
+                                [
+                                    "Silicon",
+                                    0.4
+                                ],
+                                [
+                                    "Lithium",
+                                    0.19
+                                ],
+                                [
+                                    "Lithium6",
+                                    0.015
+                                ],
+                                [
+                                    "Aluminium",
+                                    0.15
+                                ]
+                            ]
+                        }
+                    },
+                    "_density": 3.2,
+                    "ID": 162,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Substrate Processing",
+                    "_sector": 1,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [
+                        71
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "_density": 1.6,
+                    "ID": 163,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Timber",
+                    "_sector": 1,
+                    "_category": 1,
+                    "_requirements": [
+                        26
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "_density": [
+                        0.2,
+                        1.2
+                    ],
+                    "ID": 164,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Uraninite",
+                    "_sector": 2,
+                    "_category": 4,
+                    "_requirements": [
+                        64
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "recipe": {
+                            "IN": [
+                                [
+                                    "Uraninite",
+                                    1
+                                ],
+                                null
+                            ],
+                            "OUT": [
+                                [
+                                    "Helium",
+                                    0.245
+                                ],
+                                [
+                                    "Enriched Uranium",
+                                    0.22
+                                ],
+                                [
+                                    "Depleted Uranium",
+                                    0.798
+                                ]
+                            ]
+                        }
+                    },
+                    "_density": 7.5,
+                    "ID": 165,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Water Ice",
+                    "_sector": 0,
+                    "_category": 0,
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [
+                        148
+                    ],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {
+                        "convert": [
+                            "LqdWater",
+                            1.1
+                        ]
+                    },
+                    "_density": 0.9,
+                    "ID": 166,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Deimos' Expeditionary Mining Kit II",
+                    "_sector": 2,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [
+                        "Asteroid Mining Kit II"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {
+                        "weight": 109000,
+                        "components": [
+                            [
+                                "'Lava' Asteroid Grapple",
+                                1
+                            ],
+                            [
+                                "Container (2.5m) 16kL",
+                                "MaterialKits",
+                                1
+                            ],
+                            [
+                                "'Lava' Factory III kit",
+                                1
+                            ],
+                            [
+                                "'Scally' Survey Probe mk.V",
+                                2
+                            ],
+                            [
+                                "'Lava' Inflatable Cryo Tank kit",
+                                2
+                            ],
+                            [
+                                "'Lava' Inflatable Gas Tank kit",
+                                2
+                            ],
+                            [
+                                "Container M (3.75m) kit",
+                                2
+                            ],
+                            [
+                                "'Hermes' Fuel Depot Extension I kit",
+                                1
+                            ],
+                            [
+                                "'Hermes' Depot Extension I kit",
+                                1
+                            ]
+                        ]
+                    },
+                    "ID": 167,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Deimos' Extraplanetary Colonization Kit II",
+                    "_sector": 2,
+                    "_category": 5,
+                    "_requirements": [],
+                    "_components": [
+                        168
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {
+                        "weight": 118000,
+                        "components": [
+                            [
+                                "'Epithal' Extraplanetary Cargo Pod mk.I",
+                                1
+                            ],
+                            [
+                                "'Epithal' Shuttle mk.II",
+                                1
+                            ],
+                            [
+                                "'Lava' Factory III kit",
+                                1
+                            ],
+                            [
+                                "'Lava' Workshop II kit",
+                                1
+                            ],
+                            [
+                                "'Lava' Launchpad I kit",
+                                1
+                            ],
+                            [
+                                "'Lava' Habitat I kit",
+                                1
+                            ],
+                            [
+                                "Container (2.5m) 16kL",
+                                "MaterialKits",
+                                1
+                            ],
+                            [
+                                "'Lava' Inflatable Cryo Tank kit",
+                                2
+                            ],
+                            [
+                                "'Lava' Inflatable Gas Tank kit",
+                                1
+                            ],
+                            [
+                                "Container L (5m) kit",
+                                2
+                            ],
+                            [
+                                "COMMSAT II",
+                                4
+                            ],
+                            [
+                                "'Scally' Survey Probe III",
+                                2
+                            ],
+                            [
+                                "'Scally' Survey Probe II",
+                                2
+                            ],
+                            [
+                                "'Malemute' Settler Rover kit",
+                                1
+                            ]
+                        ]
+                    },
+                    "ID": 168,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Epithal' Cryo Tank 5m",
+                    "_sector": 2,
+                    "_category": 10,
+                    "_requirements": [],
+                    "_components": [
+                        "Specialized Storage"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {
+                        "weight": 1000,
+                        "capacity": 96000,
+                        "type": [
+                            "liquid",
+                            "cryo"
+                        ],
+                        "construction": [
+                            [
+                                "MaterialKits",
+                                3000
+                            ],
+                            [
+                                "SpecializedParts",
+                                195
+                            ]
+                        ]
+                    },
+                    "ID": 169,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Epithal' Cryo Tank 10m",
+                    "_sector": 2,
+                    "_category": 10,
+                    "_requirements": [],
+                    "_components": [
+                        "Specialized Storage"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {
+                        "capacity": 768000,
+                        "type": [
+                            "liquid",
+                            "cryo"
+                        ],
+                        "construction": [
+                            [
+                                "MaterialKits",
+                                17000
+                            ],
+                            [
+                                "SpecializedParts",
+                                1200
+                            ]
+                        ]
+                    },
+                    "ID": 170,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Epithal' Extraplanetary Cargo Pod mk.I",
+                    "_sector": 2,
+                    "_category": 18,
+                    "_requirements": [],
+                    "_components": [
+                        "Extraplanetary Cargo Pod I"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {},
+                    "ID": 171,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Epithal' Extraplanetary Colonization Kit I",
+                    "_sector": 2,
+                    "_category": 5,
+                    "_requirements": [],
+                    "_components": [
+                        168
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {
+                        "weight": 80820,
+                        "components": [
+                            [
+                                "Container L (5m) kit",
+                                2
+                            ],
+                            [
+                                "'Epithal' Extraplanetary Cargo Pod mk.I",
+                                1
+                            ],
+                            [
+                                "'Lava' Factory III kit",
+                                1
+                            ],
+                            [
+                                "'Lava' Inflatable Cryo Tank kit",
+                                4
+                            ],
+                            [
+                                "'Lava' Inflatable Gas Tank kit",
+                                1
+                            ],
+                            [
+                                "'Lava' Workshop II kit",
+                                1
+                            ],
+                            [
+                                "'Lava' Launchpad I kit",
+                                1
+                            ],
+                            [
+                                "'Lava' Habitat I kit",
+                                1
+                            ],
+                            [
+                                "'Scally' Survey Probe III",
+                                2
+                            ]
+                        ]
+                    },
+                    "ID": 172,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Epithal' Shuttle mk.II",
+                    "_sector": 2,
+                    "_category": 18,
+                    "_requirements": [],
+                    "_components": [
+                        "Extraplanetary Cargo Pod I"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {},
+                    "ID": 173,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Hermes' Orbital Storage Facilities",
+                    "_sector": 2,
+                    "_category": 10,
+                    "_requirements": [],
+                    "_components": [
+                        174,
+                        "Orbital Dociking Facilities"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 174,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Invicta' Asteroid Mining Kit I",
+                    "_sector": 2,
+                    "_category": 4,
+                    "_requirements": [],
+                    "_components": [
+                        175
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {
+                        "components": [
+                            [
+                                "ISRU Processor",
+                                1
+                            ],
+                            [
+                                "Orbital Launchpad",
+                                1
+                            ],
+                            [
+                                "Deep Space Storage module"
+                            ],
+                            [
+                                "Deep Space Prospecting module"
+                            ],
+                            [
+                                "Deep Space Generator PDU"
+                            ],
+                            [
+                                "Workforce Branching workshop"
+                            ],
+                            [
+                                "'JAW' Asteroid Excavator kit",
+                                3
+                            ],
+                            [
+                                "Container M (3.75m) kit",
+                                4
+                            ]
+                        ]
+                    },
+                    "ID": 175,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Lava' Asteroid Grapple",
+                    "_sector": 2,
+                    "_category": 18,
+                    "_requirements": [],
+                    "_components": [
+                        "Robotic Grapple"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {},
+                    "ID": 176,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Lava' Expeditionary Mining Kit I",
+                    "_sector": 2,
+                    "_category": 18,
+                    "_requirements": [],
+                    "_components": [
+                        "Deep Space Mining Supplies",
+                        "Deep Space Prospecting"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {
+                        "weight": 37570,
+                        "components": [
+                            [
+                                "'Lava' Astrominer I",
+                                5
+                            ],
+                            [
+                                "'Lava' Asteroid MPU I",
+                                5
+                            ],
+                            [
+                                "'Lava' Asteroid workshop I",
+                                2
+                            ],
+                            [
+                                "Container M (3.75m) kit",
+                                2
+                            ],
+                            [
+                                "'Scally' Survey Probe III",
+                                2
+                            ],
+                            [
+                                "'Scally' Survey Probe mk.V",
+                                2
+                            ],
+                            [
+                                "'Lava' Fuel Hatch Gas I",
+                                2
+                            ],
+                            [
+                                "'Lava' Fuel Hatch Cryo I",
+                                2
+                            ],
+                            [
+                                "'Lava' Fuel Hatch Gas II",
+                                2
+                            ],
+                            [
+                                "'Lava' Fuel Hatch Cryo II",
+                                2
+                            ]
+                        ],
+                        "kit": [
+                            [
+                                "MaterialKits",
+                                31000
+                            ],
+                            [
+                                "SpecializedParts",
+                                2200
+                            ]
+                        ]
+                    },
+                    "ID": 177,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Lava' Fuel Hatch Cryo I",
+                    "_sector": 2,
+                    "_category": 18,
+                    "_requirements": [],
+                    "_components": [
+                        176,
+                        "Space-grade Cryogenic Tank"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {
+                        "weight": 2000,
+                        "capacity": 8000,
+                        "type": [
+                            "liquid",
+                            "cryo"
+                        ]
+                    },
+                    "ID": 178,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Seed Spacecraft",
+                    "_sector": 2,
+                    "_category": 10,
+                    "_requirements": [
+                        "Orbital Shipyards"
+                    ],
+                    "_components": [
+                        "Endurance Spacecraft",
+                        195,
+                        168,
+                        "Seed Spacecraft Command"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {},
+                    "ID": 179,
+                    "@": "MAGPIE_Commodity",
+                    "_module": [
+                        {
+                            "@": "Commodity_Vehicle"
+                        },
+                        {
+                            "@": "Commodity_Labor"
+                        },
+                        {
+                            "@": "Commodity_Kit"
+                        }
+                    ]
+                },
+                {
+                    "_name": "Venture-class Seed Spacecraft",
+                    "_sector": 2,
+                    "_category": 10,
+                    "_requirements": [
+                        "Orbital Shipyard"
+                    ],
+                    "_components": [
+                        179,
+                        183,
+                        184
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {},
+                    "ID": 180,
+                    "@": "MAGPIE_Commodity",
+                    "_module": []
+                },
+                {
+                    "_name": "Fission-fusion Hybrid Molten Salt Reactor",
+                    "_sector": 2,
+                    "_category": 24,
+                    "_requirements": [],
+                    "_components": [
+                        "Nuclear Fission Plant",
+                        "Nuclear Fusion Plant"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 181,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Bussard' R.A.I.R. Fusion Drive",
+                    "_sector": 2,
+                    "_category": 25,
+                    "_requirements": [],
+                    "_components": [
+                        "'Bussard' Fusion Engine mk.8",
+                        "Interstellar Medium Magnetic Scoop"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 182,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Venture-class Propulsion Section",
+                    "_sector": 2,
+                    "_category": 9,
+                    "_requirements": [],
+                    "_components": [
+                        "Interstellar-rated Spinal Truss",
+                        "Interstellar-rated SolidHydrogen Storage",
+                        182,
+                        181
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 183,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Venture-class Cargo Section",
+                    "_sector": 2,
+                    "_category": 9,
+                    "_requirements": [],
+                    "_components": [
+                        "Interstellar-rated Spinal Truss",
+                        "Deep Space Storage",
+                        "Interstellar-rated Micrometeorite Shield"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 184,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Combined Intelligence",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [],
+                    "_components": [
+                        "General Purpose A.I.",
+                        "Digital Mind"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 185,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Omniarch",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        188,
+                        193,
+                        "International Military Alliance"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 186,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Court of Justice",
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [
+                        "Nation",
+                        0
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 187,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Government",
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [
+                        "Nation",
+                        0
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 188,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Military",
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [
+                        "Nation",
+                        0
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 189,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Specialized Market",
+                    "_requirements": [],
+                    "_components": [],
+                    "_recipes": [
+                        "Nation",
+                        0
+                    ],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 190,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Corporation",
+                    "_requirements": [
+                        "Nation",
+                        0
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 191,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Metropolis",
+                    "_requirements": [
+                        "Nation",
+                        0
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 192,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "International Alliance",
+                    "_requirements": [
+                        "Nation",
+                        0
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 193,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "International Relations",
+                    "_requirements": [
+                        "Nation",
+                        0
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 194,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Specialized Smartbot Labor",
+                    "_sector": 3,
+                    "_category": 2,
+                    "_requirements": [
+                        "Specialized Utensils",
+                        "Robot Maintenance"
+                    ],
+                    "_components": [
+                        "Specialized Smartbots"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "_contents": {},
+                    "ID": 195,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Invictus-class Fusion Shuttle",
+                    "_sector": 3,
+                    "_category": 18,
+                    "_requirements": [],
+                    "_components": [
+                        196,
+                        "Cargo Capacity",
+                        197,
+                        "'Invicta' DSSR",
+                        "APAS I"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Vehicle",
+                    "_contents": {},
+                    "ID": 196,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Invicta-Bussard' FD8MSR375",
+                    "_sector": 2,
+                    "_category": 25,
+                    "_requirements": [],
+                    "_components": [
+                        "'Bussard' FD8",
+                        198
+                    ],
+                    "_recipes": [],
+                    "_development": [
+                        196
+                    ],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 197,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "'Invicta' FFHMSR375",
+                    "_sector": 2,
+                    "_category": 24,
+                    "_requirements": [],
+                    "_components": [
+                        "Fission-Fusion Hybrid Molten Salt Reactor"
+                    ],
+                    "_recipes": [],
+                    "_development": [
+                        197
+                    ],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 198,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Extraplanetary Colony",
+                    "_sector": 4,
+                    "_category": 7,
+                    "_requirements": [
+                        "Extraplanetary Colonization Facilities"
+                    ],
+                    "_components": [
+                        "Extraplanetary Colonist Labor",
+                        "Extraplanetary Habitat"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Organisation",
+                    "_contents": {},
+                    "ID": 199,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Space Ark",
+                    "_sector": 4,
+                    "_category": 13,
+                    "_requirements": [
+                        "Space Life Support Equipment",
+                        "Cloning Expertise",
+                        "Space Laboratory",
+                        "Deep Space Storage",
+                        "Deep Space Habitat"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 200,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Paramilitary Unit",
+                    "_sector": 4,
+                    "_category": 3,
+                    "_requirements": [],
+                    "_components": [
+                        "Barracks",
+                        "Command Centre",
+                        "Advanced Military Personnel",
+                        "Military Depot"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Unit",
+                    "_contents": {},
+                    "ID": 201,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Basic Digital Library",
+                    "_sector": 4,
+                    "_category": 19,
+                    "_requirements": [
+                        "Library",
+                        "Advanced ICT Expertise"
+                    ],
+                    "_components": [
+                        "Advanced Electronic Devices"
+                    ],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Object",
+                    "_contents": {},
+                    "ID": 202,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Interstellar Travel Expertise",
+                    "_sector": 4,
+                    "_category": 20,
+                    "_requirements": [
+                        204,
+                        "Relativistic Navigation",
+                        "Intergenerational Planning"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 203,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Interplanetary Travel Expertise",
+                    "_sector": 4,
+                    "_category": 20,
+                    "_requirements": [
+                        "Deep Space Travel Expertise",
+                        "Specialized Spacecraft Engineering",
+                        "Specialized Biology Expertise",
+                        "Space Laboratory"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 204,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Deep Space Travel Expertise",
+                    "_sector": 4,
+                    "_category": 20,
+                    "_requirements": [
+                        "Space Laboratory",
+                        "Advanced Biology Expertise",
+                        "Orbital Academy",
+                        "Specialized Spacecraft Engineering",
+                        "Orbital Habitation Expertise"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 205,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Specialized Spacecraft Engineering",
+                    "_sector": 4,
+                    "_category": 9,
+                    "_requirements": [
+                        "Orbital Spacecraft Facilities",
+                        "Orbital Academy",
+                        "Space Laboratory",
+                        56
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 206,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Specialized Biology Expertise",
+                    "_sector": 4,
+                    "_category": 20,
+                    "_requirements": [
+                        "Advanced Biology Expertise",
+                        "Advanced Chemical Expertise",
+                        61,
+                        "Specialized Research Laboratory"
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Entity",
+                    "_contents": {},
+                    "ID": 207,
+                    "@": "MAGPIE_Commodity"
+                },
+                {
+                    "_name": "Space Laboratory",
+                    "_sector": 3,
+                    "_category": 20,
+                    "_requirements": [
+                        "Orbital Spacecraft Facilities",
+                        "Specialized Research Laboratory",
+                        56
+                    ],
+                    "_components": [],
+                    "_recipes": [],
+                    "_development": [],
+                    "_predecessors": [],
+                    "_upgrades": [],
+                    "_prototype": "MAGPIE_Structure",
+                    "_contents": {},
+                    "ID": 208,
+                    "@": "MAGPIE_Commodity"
+                }
+            ],
+            "@": "MAGPIE_EntityPool"
+        }
+    ],
+    "@": "MAGPIE_EntityDatabase",
+    "_name": "MAGPIE_RESOURCE_Database"
+}

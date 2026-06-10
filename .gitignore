@@ -7,6 +7,7 @@ effects/
 data/
 assets/
 audio/
+movies/
 rmmz_core.js
 rmmz_managers.js
 rmmz_objects.js
@@ -18,5 +19,6 @@ main.js
 plugins.js
 node_modules/
 swiftshader/
-js/
-**/plugins
+js/plugins
+logs/
+save/

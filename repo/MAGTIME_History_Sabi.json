@@ -1,0 +1,173 @@
+[
+    {
+        "_name": "Genesys",
+        "contents": "",
+        "_gravity": 4,
+        "_scale": 0,
+        "_start": -4500000000,
+        "_end": -2000000000,
+        "@": "Geologic_Eon"
+    },
+    {
+        "_name": "Arkian",
+        "contents": "\"\"",
+        "_gravity": 4,
+        "_scale": 0,
+        "_start": -2000000000,
+        "_end": 0,
+        "@": "Geologic_Eon"
+    },
+    {
+        "_name": "Protean",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 1,
+        "_start": -1500000000,
+        "_end": -500000000,
+        "@": "Geologic_Era"
+    },
+    {
+        "_name": "Neagene",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -1500000000,
+        "_end": -1200000000,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Metavallogene",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -1200000000,
+        "_end": -900000000,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Anaptygene",
+        "contents": "\"\"",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -900000000,
+        "_end": -500000000,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Primazoic",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 1,
+        "_start": -500000000,
+        "_end": -260000000,
+        "@": "Geologic_Era"
+    },
+    {
+        "_name": "Primasuperian",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -500000000,
+        "_end": -318000000,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Primainferian",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -318000000,
+        "_end": -260000000,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Mesozoic",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 1,
+        "_start": -260000000,
+        "_end": 0,
+        "@": "Geologic_Era"
+    },
+    {
+        "_name": "Ariassic",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -260000000,
+        "_end": -180000000,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Kerassic",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -180000000,
+        "_end": -100000000,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Sonikrian",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": -100000000,
+        "_end": 0,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Hastralean",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 0,
+        "_start": 0,
+        "_end": null,
+        "@": "Geologic_Eon"
+    },
+    {
+        "_name": "Hastralic",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 1,
+        "_start": 0,
+        "_end": null,
+        "@": "Geologic_Era"
+    },
+    {
+        "_name": "SHELCOL",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 2,
+        "_start": 0,
+        "_end": null,
+        "@": "Geologic_Period"
+    },
+    {
+        "_name": "Gardian",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 4,
+        "_start": 0,
+        "_end": 300,
+        "@": "Geologic_Age"
+    },
+    {
+        "_name": "Hastralian",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 4,
+        "_start": 300,
+        "_end": 2000,
+        "@": "Geologic_Age"
+    },
+    {
+        "_name": "Alowian",
+        "contents": "",
+        "_gravity": 0,
+        "_scale": 4,
+        "_start": 2000,
+        "_end": null,
+        "@": "Geologic_Age"
+    }
+]

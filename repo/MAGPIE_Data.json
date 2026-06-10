@@ -1,0 +1,42 @@
+{
+    "meta": {
+        "name": "M.A.G.P.I.E. Mission Control",
+        "isAI": true,
+        "isOS": true,
+        "firmware": "20250830",
+        "firmwareFile": "MAGPIE_SYS.js"
+    },
+    "ID": 237382500,
+    "_name": "MAGPIE_SYS_proxy",
+    "state": {},
+    "logs": [
+        {
+            "contents": "MAGPIE_ARK190820204 started.",
+            "_date": "2025-09-01T15:18:28.254Z",
+            "_created": 5975,
+            "@": "MAGPIE_Log"
+        },
+        {
+            "contents": "New session",
+            "_date": "2025-09-05T18:11:05.532Z",
+            "_created": 13,
+            "@": "MAGPIE_Log"
+        },
+        {
+            "contents": "New session",
+            "_date": "2025-09-05T18:12:15.383Z",
+            "_created": 1,
+            "@": "MAGPIE_Log"
+        },
+        {
+            "contents": "New session",
+            "_date": "2025-09-06T10:21:43.410Z",
+            "_created": 2,
+            "@": "MAGPIE_Log"
+        }
+    ],
+    "sync": {},
+    "exp": [],
+    "@": "MAGPIE_Data",
+    "_init": true
+}

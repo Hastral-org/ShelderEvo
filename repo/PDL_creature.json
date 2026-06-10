@@ -1,0 +1,108 @@
+{
+    "name": "creature",
+    "nextPool": 0,
+    "pools": [
+        {
+            "isAvailable": true,
+            "nextSlot": 2,
+            "@": "MAGPIE_EntityPool",
+            "entities": [
+                {
+                    "nickname": "Flo",
+                    "speciesID": "300",
+                    "_level": 24,
+                    "_created": 4,
+                    "breedId": "12",
+                    "sex": "female",
+                    "firstName": "Flodite",
+                    "lastName": "Kaidaa",
+                    "_traits": [
+                        51,
+                        101,
+                        121,
+                        122,
+                        141,
+                        181,
+                        201,
+                        6
+                    ],
+                    "_exp": [],
+                    "_perks": [
+                        "human_mouth",
+                        "human_eyes",
+                        "human_hair",
+                        "human_ears",
+                        "human_nose",
+                        "human_brain",
+                        "human_hands",
+                        "human_feet"
+                    ],
+                    "_params": [
+                        10,
+                        11,
+                        4,
+                        9,
+                        7,
+                        10,
+                        1,
+                        0,
+                        0,
+                        null,
+                        330
+                    ],
+                    "ID": 0,
+                    "@": "Game_Creature"
+                },
+                {
+                    "nickname": "Ori",
+                    "speciesID": "300",
+                    "_level": 90,
+                    "_created": 4,
+                    "breedId": "11",
+                    "sex": "male",
+                    "firstName": "Orian",
+                    "lastName": "Ishino",
+                    "_traits": [
+                        51,
+                        101,
+                        121,
+                        122,
+                        141,
+                        181,
+                        201,
+                        6
+                    ],
+                    "_exp": [],
+                    "_perks": [
+                        "human_mouth",
+                        "human_eyes",
+                        "human_hair",
+                        "human_ears",
+                        "human_nose",
+                        "human_brain",
+                        "human_hands",
+                        "human_feet"
+                    ],
+                    "_params": [
+                        10,
+                        11,
+                        4,
+                        9,
+                        7,
+                        10,
+                        1,
+                        0,
+                        0,
+                        null,
+                        330
+                    ],
+                    "ID": 1,
+                    "@": "Game_Creature"
+                }
+            ]
+        }
+    ],
+    "poolSize": 1000,
+    "totalSize": 2,
+    "@": "MAGPIE_EntityDatabase"
+}

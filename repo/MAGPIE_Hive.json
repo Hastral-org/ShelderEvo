@@ -1,0 +1,22 @@
+{
+    "isActive": true,
+    "meta": {
+        "isGuest": true,
+        "isHive": true
+    },
+    "_name": "MAGPIE_Hive_Core",
+    "ID": 755255976,
+    "_parent": "$MAGPIE.RUNTIME",
+    "_runtime": 1665830,
+    "_superTICK": 50,
+    "_megaTICK": 43,
+    "_ultraTICK": 6,
+    "_guests": [
+        2
+    ],
+    "_superGuests": [],
+    "_megaGuests": [],
+    "_ultraGuests": [],
+    "@": "MAGPIE_Hive",
+    "_queue": 0
+}

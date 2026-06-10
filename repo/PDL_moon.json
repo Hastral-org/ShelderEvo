@@ -1,0 +1,44 @@
+{
+    "name": "Moons",
+    "nextPool": 0,
+    "pools": [
+        {
+            "isAvailable": true,
+            "nextSlot": 1,
+            "@": "MAGPIE_EntityPool",
+            "entities": [
+                {
+                    "meta": "Game_Moon",
+                    "_name": "Shelyn",
+                    "_type": "moon",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": "Shelyn",
+                        "_parentID": 0,
+                        "_parentType": "moon",
+                        "_apo": 352798000,
+                        "_peri": 319198000,
+                        "_inc": 2.23,
+                        "_period": 24.305,
+                        "_direction": true,
+                        "@": "Game_Orbit",
+                        "_semiMajorAxis": 335998000
+                    },
+                    "_parent": "Shelder",
+                    "_parentType": "planet",
+                    "_parentID": 0,
+                    "ID": 0,
+                    "_radius": 1737,
+                    "_gravity": 0.165,
+                    "_mass": 1,
+                    "_tidal": true,
+                    "@": "Game_Moon"
+                }
+            ]
+        }
+    ],
+    "poolSize": 1000,
+    "totalSize": 1,
+    "@": "MAGPIE_EntityDatabase"
+}

@@ -1,0 +1,118 @@
+[
+    {
+        "ID": 0,
+        "_type": 0,
+        "_name": "VOID",
+        "_path": "MAGPIE_KEY.AXIO.VOID",
+        "_root": [],
+        "_branch": [],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    },
+    {
+        "ID": 1,
+        "_type": 0,
+        "_name": "TRUE",
+        "_path": "MAGPIE_KEY.AXIOM.TRUE",
+        "_root": [
+            1
+        ],
+        "_branch": [
+            4,
+            1
+        ],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    },
+    {
+        "ID": 2,
+        "_type": 0,
+        "_name": "FALSE",
+        "_path": "MAGPIE_KEY.AXIOM.FALSE",
+        "_root": [
+            2
+        ],
+        "_branch": [
+            4,
+            2
+        ],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    },
+    {
+        "ID": 3,
+        "_type": 0,
+        "_name": "SELF",
+        "_path": "MAGPIE_KEY.AXIOM.SELF",
+        "_root": [],
+        "_branch": [],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    },
+    {
+        "ID": 4,
+        "_type": 1,
+        "_name": "IS",
+        "_path": "MAGPIE_KEY.LOGIC.IS",
+        "_root": [
+            1,
+            2,
+            4
+        ],
+        "_branch": [
+            6,
+            7,
+            4
+        ],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    },
+    {
+        "ID": 5,
+        "_type": 1,
+        "_name": "NOT",
+        "_path": "MAGPIE_KEY.LOGIC.NOT",
+        "_root": [
+            1,
+            2,
+            5
+        ],
+        "_branch": [
+            7,
+            5
+        ],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    },
+    {
+        "ID": 6,
+        "_type": 1,
+        "_name": "AND",
+        "_path": "MAGPIE_KEY.LOGIC.AND",
+        "_root": [
+            4,
+            6
+        ],
+        "_branch": [
+            6
+        ],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    },
+    {
+        "ID": 7,
+        "_type": 1,
+        "_name": "_",
+        "_path": "MAGPIE_KEY.LOGIC.ASSIGN",
+        "_root": [
+            4,
+            5,
+            7
+        ],
+        "_branch": [
+            7
+        ],
+        "_tags": [],
+        "@": "MAGPIE_KEY"
+    }
+]

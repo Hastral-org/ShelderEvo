@@ -1,0 +1,50 @@
+{
+    "name": "Stars",
+    "nextPool": 0,
+    "pools": [
+        {
+            "isAvailable": true,
+            "nextSlot": 1,
+            "@": "MAGPIE_EntityPool",
+            "entities": [
+                {
+                    "meta": "Game_Star",
+                    "_name": "Shel",
+                    "_regions": [],
+                    "_orbit": {
+                        "meta": "Game_Orbit",
+                        "_parent": [
+                            "star",
+                            0,
+                            "Shel"
+                        ],
+                        "_apo": 0,
+                        "_peri": 0,
+                        "@": "Game_Orbit"
+                    },
+                    "_type": "star",
+                    "ID": 0,
+                    "@": "Game_Star",
+                    "_class": "G5.8V",
+                    "_mass": 0.931,
+                    "_age": 4500000000,
+                    "_maxAge": 12392000000,
+                    "_radius": 0.944,
+                    "_luminosity": 0.751,
+                    "_density": 1.105,
+                    "_temperature": 5533,
+                    "_habitableZone": [
+                        0.826,
+                        1.191
+                    ],
+                    "_life": true,
+                    "_color": "#fff4ec",
+                    "_satellites": []
+                }
+            ]
+        }
+    ],
+    "poolSize": 1000,
+    "totalSize": 1,
+    "@": "MAGPIE_EntityDatabase"
+}

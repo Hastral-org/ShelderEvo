@@ -1,0 +1,15 @@
+{
+    "name": "Territories",
+    "nextPool": 0,
+    "pools": [
+        {
+            "isAvailable": true,
+            "nextSlot": 0,
+            "@": "MAGPIE_EntityPool",
+            "entities": []
+        }
+    ],
+    "poolSize": 1000,
+    "totalSize": 0,
+    "@": "MAGPIE_EntityDatabase"
+}
