@@ -1,7 +1,7 @@
 /**
  * @namespace SE_CLI
  * @author Matheraptor
- * @version 0.39.91 2026 06 16
+ * @version 0.39.92 2026 06 16
  *
  * @desc links:
  * - [entry point html](../../index.html)
@@ -10,11 +10,13 @@
 //========================================================================
 //#region - INDEX
 //========================================================================
-const SE_CLI = {};
+class SE_CLI {
+  //
+}
 SE_CLI.meta = {
   name: "M.A.G.P.I.E. (C)ommand (L)ine (I)nterface",
   desc: "",
-  version: [0, 39, 91],
+  version: [0, 39, 92],
   firmwareDate: "20260616",
 };
 SE_CLI._copyright = "Ⓒ 2026 MATHERAPTOR @ MAEDASHELADI CORP.";
@@ -26,8 +28,10 @@ SE_CLI.DATA.PLAYER_ID = NaN;
 SE_CLI.DATA.ENTITY_ID = NaN;
 SE_CLI.DATA.PLAYER = null;
 SE_CLI.DATA.JWT_TOKEN = "";
+SE_CLI.DATA.MODULE = null;
 SE_CLI.params = new URLSearchParams(window.location.search);
 const fetch = global.fetch;
+const fs = require("fs");
 //#endregion
 //========================================================================
 /**
@@ -129,10 +133,10 @@ SE_CLI.resetTUI = function resetTUI() {
 //------------------------------------------------------------------------
 // #region > Security
 //------------------------------------------------------------------------
-function switchInputMode(options) {
+SE_CLI.switchInputMode = function switchInputMode(options) {
   SE_CLI.INPUT.value = "";
   SE_CLI.INPUT.type = options?.type;
-}
+};
 // #endregion
 //------------------------------------------------------------------------
 /**
@@ -526,7 +530,7 @@ SE_CLI.initSocket = async function initSocket() {
     });
     SE_CLI.socket.on("LOGIN_ERROR", async (data) => {
       await SE_CLI.printLine(`Login failed: ${data.message}`, "error", 5000);
-      SE_CLI.resetModule();
+      SE_CLI.resetModule("account");
       await SE_CLI.switchModule("account");
       resolve();
     });
@@ -541,7 +545,7 @@ SE_CLI.initSocket = async function initSocket() {
         "error",
         5000,
       );
-      SE_CLI.resetModule();
+      SE_CLI.resetModule("account");
       await SE_CLI.switchModule("account");
       resolve();
     });
@@ -678,9 +682,18 @@ SE_CLI.modules.handleInput = async function (rawInput) {
       );
   }
 };
-SE_CLI.resetModule = function resetModule() {
-  SE_CLI.modules.account.mode = "command";
-  SE_CLI.modules.account.step = null;
+SE_CLI.resetModule = function resetModule(module) {
+  const ePrefix = "[CLI].resetModule: ";
+  try {
+    if (!module) module = SE_CLI.activeModule?.name;
+    if (!module) throw new Error(`${module} is invalid module. `);
+    SE_CLI.modules[module].mode = "command";
+    SE_CLI.modules[module].step = null;
+    SE_CLI.modules[module].tempData = {};
+    SE_CLI.updatePromptUI();
+  } catch (e) {
+    SE_CLI.error(ePrefix + e.message, e);
+  }
 };
 // #endregion
 //------------------------------------------------------------------------
@@ -694,8 +707,11 @@ SE_CLI.resetModule = function resetModule() {
 //------------------------------------------------------------------------
 SE_CLI.modules.root = {
   name: "root",
+  mode: "command",
+  step: null,
+  tempData: {},
   onEnter: async () => {
-    // SE_CLI.clearTerminal()
+    SE_CLI.DATA.MODULE = SE_CLI.modules.root.name;
     // SE_CLI.modules.root.handleInput("help")
   },
   commands: {
@@ -760,6 +776,7 @@ SE_CLI.modules.account = {
   },
   onEnter: async () => {
     await SE_CLI.modules.account.renderUI();
+    SE_CLI.DATA.MODULE = SE_CLI.modules.account.name;
   },
   commands: {
     register: async () => {
@@ -767,7 +784,7 @@ SE_CLI.modules.account = {
       SE_CLI.modules.account.step = "register_email";
       SE_CLI.updatePromptUI();
       await SE_CLI.printLine("Please, enter your email:", "info");
-      switchInputMode({ type: "email" });
+      SE_CLI.switchInputMode({ type: "email" });
     },
     login: async () => {
       const module = SE_CLI.modules.account;
@@ -775,7 +792,7 @@ SE_CLI.modules.account = {
       module.step = "login_email";
       SE_CLI.updatePromptUI();
       await SE_CLI.printLine("Please, enter your email:", "info");
-      switchInputMode({ type: "email" });
+      SE_CLI.switchInputMode({ type: "email" });
     },
     resetpassword: async () => {
       const module = SE_CLI.modules.account;
@@ -786,7 +803,7 @@ SE_CLI.modules.account = {
         "Please, enter your account email to request a reset link:",
         "info",
       );
-      switchInputMode({ type: "email" });
+      SE_CLI.switchInputMode({ type: "email" });
     },
     back: async () => {
       await SE_CLI.switchModule("root");
@@ -803,7 +820,7 @@ SE_CLI.modules.account = {
       module.step = "register_username";
       await SE_CLI.printLine(`Register email: '${module.tempData.email}'`);
       await SE_CLI.printLine("Please, enter your desired username:", "info");
-      switchInputMode({ type: "text" });
+      SE_CLI.switchInputMode({ type: "text" });
     },
     /** @param {String} input @param {cli_module} module */
     register_username: async (input, module) => {
@@ -813,7 +830,7 @@ SE_CLI.modules.account = {
         `Register username: '${module.tempData.username}'`,
       );
       await SE_CLI.printLine("Please, enter your desired 'password':", "info");
-      switchInputMode({ type: SE_CLI.KEY.HTML.INPUT.TYPE.PASSWORD });
+      SE_CLI.switchInputMode({ type: SE_CLI.KEY.HTML.INPUT.TYPE.PASSWORD });
     },
     register_password: async (input, module) => {
       // const hash = await module.hashPassword(input);
@@ -823,20 +840,34 @@ SE_CLI.modules.account = {
         "Enter your 'password' again to confirm it:",
         "info",
       );
-      switchInputMode({ type: SE_CLI.KEY.HTML.INPUT.TYPE.PASSWORD });
+      SE_CLI.switchInputMode({ type: SE_CLI.KEY.HTML.INPUT.TYPE.PASSWORD });
     },
     /** @param {String} input @param {cli_module} module */
     register_password_confirm: async (input, module) => {
       // const hash = await module.hashPassword(input);
+      const confirmed = module.tempData.password === input;
+      module.step = confirmed ? "register_confirm" : null;
+      if (!confirmed) {
+        await SE_CLI.printLine(
+          "Passwords did not match. Resetting...",
+          "error",
+          1000,
+        );
+        SE_CLI.resetModule();
+      }
+      await SE_CLI.printLine("Password confirmed. ");
+      SE_CLI.switchInputMode({ type: SE_CLI.KEY.HTML.INPUT.TYPE.TEXT });
+    },
+    register_confirm: async (input, module) => {
+      // @audit-issue [issue 106](https://github.com/Hastral-org/MAGPIE_Server/issues/106);
+      // await SE_CLI.printLine("Transmitting credentials (placeholder)...", "info")
+      // @todo add Spinner "sending registration request..." here
       const payload = {
         email: module.tempData.email,
         username: module.tempData.username,
-        password: input,
+        password: module.tempData.password,
       };
-      switchInputMode({ type: SE_CLI.KEY.HTML.INPUT.TYPE.TEXT });
-      // @audit-issue (socket => http) SE_CLI.socket.emit("REGISTER", payload);
-      // await SE_CLI.printLine("Transmitting credentials (placeholder)...", "info")
-      // @todo add Spinner "sending registration request..." here
+      module.tempData.payload = payload;
       const response = await SE_CLI.sendRequest("/register", payload);
       if (response && typeof response?.token === "string") {
         // @todo stop spinner and clear line
@@ -846,23 +877,20 @@ SE_CLI.modules.account = {
           "Please, check your email for the confirmation link.",
         );
       }
-      module.mode = "command";
-      module.step = null;
-      module.tempData = {};
-      SE_CLI.updatePromptUI();
+      SE_CLI.resetModule();
     },
     login_email: async (input, module) => {
       module.tempData.email = input;
       module.step = "login_password";
       await SE_CLI.printLine("Please, enter your password:", "info");
-      switchInputMode({ type: "password" });
+      SE_CLI.switchInputMode({ type: "password" });
     },
     login_password: async (input, module) => {
       const payload = {
         email: module.tempData.email,
         password: input,
       };
-      switchInputMode({ type: "text" });
+      SE_CLI.switchInputMode({ type: "text" });
       SE_CLI.socket.emit("LOGIN", payload);
       // await SE_CLI.printLine("Transmitting credentials...", "info")
     },
@@ -870,7 +898,7 @@ SE_CLI.modules.account = {
       const payload = {
         email: input,
       };
-      switchInputMode({ type: "text" });
+      SE_CLI.switchInputMode({ type: "text" });
       SE_CLI.socket.emit("RESET_PASSWORD_REQUEST", payload);
       // await SE_CLI.printLine("Transmitting reset request to MAGPIE_Server...", "info")
       module.mode = "command";
@@ -904,6 +932,7 @@ SE_CLI.modules.updater = {
   tempData: {},
   renderUI: async () => {
     await SE_CLI.printLine("--- FIRMWARE UPDATE ---", "info");
+    SE_CLI.DATA.MODULE = SE_CLI.modules.updater.name;
     // await SE_CLI.printLine("Available commands: fetch, pull, back")
   },
   onEnter: async () => {
@@ -944,6 +973,7 @@ SE_CLI.modules.adopt = {
   },
   onEnter: async () => {
     await SE_CLI.modules.adopt.renderUI();
+    SE_CLI.DATA.MODULE = SE_CLI.modules.adopt.name;
     socket.emit(`adopt_creature`);
   },
   commands: {
@@ -981,6 +1011,33 @@ SE_CLI.modules.adopt = {
 //========================================================================
 // #region - SYSTEM
 //========================================================================
+/**
+ * @name
+ * @desc
+ *
+ */
+//------------------------------------------------------------------------
+// #region > Logging
+//------------------------------------------------------------------------
+SE_CLI.log = function (message, prefix) {
+  console.log(`[${prefix}] ${message}`);
+  const date = SE_CLI.printDate();
+  fs.writeFileSync(process.cwd() + `\\logs\\${prefix}${date}.txt`);
+};
+SE_CLI.error = function (message, error) {
+  console.error(message, error);
+  SE_CLI.log(message, "error");
+};
+SE_CLI.printDate = function () {
+  const date = new Date();
+  const pad = (num, length = 2) => num.toString().padStart(length, "0");
+  const year = pad(date.getUTCFullYear(), 4);
+  const month = pad(date.getUTCMonth() - 1);
+  const day = pad(date.getUTCDate());
+  return `${year}${month}${day}`;
+};
+// #endregion
+//------------------------------------------------------------------------
 /**
  * @name
  * @desc
