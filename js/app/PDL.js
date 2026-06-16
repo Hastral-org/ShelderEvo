@@ -35,7 +35,7 @@
 var MAGPIE = MAGPIE || {};
 MAGPIE.PDL = {}
 MAGPIE.PDL.meta = {
-    name: "M.A.G.P.I.E. (P)rocedural (D)ata (L)oader",
+    name: `M.A.G.P.I.E. (P)rocedural (D)ata (L)oader`,
     desc: "",
     version: [0,35,0],
     firmwareName: "PDL",
