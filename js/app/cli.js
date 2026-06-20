@@ -94,10 +94,7 @@ SE_CLI.displayPrompt = function displayPrompt() {
     SE_CLI.activeModule && SE_CLI.activeModule.name !== "root"
       ? SE_CLI.activeModule.name.toUpperCase()
       : "ROOT";
-  const mode =
-    SE_CLI.activeModule && SE_CLI.activeModule.mode === "input"
-      ? "[INPUT]"
-      : "";
+  const mode = SE_CLI.activeModule?.mode || "";
   const promptString = `${user}@${moduleName}:${mode}>`;
   // THIS IS WHAT WAS MISSING:
   const promptSpan = document.querySelector(".prompt");
@@ -435,7 +432,7 @@ SE_CLI.initSocket = async function initSocket() {
     if (!SE_CLI.socket)
       throw new Error(`${ePrefix}${SE_CLI.socket} is invalid socket`);
     SE_CLI.socket.on("connect", async () => {
-      const message = `${ePrefix}[SOCKET-${SE_CLI.socket.id}] connected to ${SE_CLI.DOMAIN}.`;
+      const message = `${ePrefix}[SOCKET-${SE_CLI.socket.id}] connected.`;
       window.socket = SE_CLI.socket;
       await SE_CLI.printLine(message, "success", 500);
       await SE_CLI.printLine(SE_CLI.UI.SEPARATOR, "info", 2000);
@@ -511,20 +508,23 @@ SE_CLI.initSocket = async function initSocket() {
       resolve();
     });
     SE_CLI.socket.on("LOGIN_SUCCESS", async (data) => {
-      SE_CLI.activeUser = data.username;
+      const { server, token, player } = data;
+      const { ID, username } = player;
+      SE_CLI.activeUser = username;
       SE_CLI.updatePromptUI();
       SE_CLI.clearTerminal();
       await SE_CLI.printLine(
-        `Login successful. Welcome back, ${data.username}!`,
+        `Login successful. Welcome back, ${username}!`,
         "success",
       );
-      localStorage.setItem("jwt_token", data.token);
-      localStorage.setItem("username", data.username);
+      localStorage.setItem("jwt_token", token);
+      localStorage.setItem("username", username);
+      SE_CLI.DATA.JWT_TOKEN = token;
       // await SE_CLI.switchModule("updater")
       // @todo const update = await SE_CLI.modules.updater.handleInput("fetch")
       // if(!update)
       // 	reject("[BOOT] update error.")
-      if (!SE_CLI.DATA.PLAYER?.slots) SE_CLI.sync(data);
+      // if (!SE_CLI.DATA.PLAYER?.slots) SE_CLI.sync(data);
       if (SE_CLI.DATA.PLAYER.slots.length > 0) resolve(SE_CLI.BOOT.handoff());
       resolve(SE_CLI.switchModule("adopt"));
     });
@@ -855,10 +855,9 @@ SE_CLI.modules.account = {
         );
         SE_CLI.resetModule();
       }
+      SE_CLI.clearTerminal();
       await SE_CLI.printLine("Password confirmed. ");
       SE_CLI.switchInputMode({ type: SE_CLI.KEY.HTML.INPUT.TYPE.TEXT });
-    },
-    register_confirm: async (input, module) => {
       // @audit-issue [issue 106](https://github.com/Hastral-org/MAGPIE_Server/issues/106);
       // await SE_CLI.printLine("Transmitting credentials (placeholder)...", "info")
       // @todo add Spinner "sending registration request..." here
@@ -868,7 +867,7 @@ SE_CLI.modules.account = {
         password: module.tempData.password,
       };
       module.tempData.payload = payload;
-      const response = await SE_CLI.sendRequest("/register", payload);
+      const response = await SE_CLI.sendRequest("/account/register", payload);
       if (response && typeof response?.token === "string") {
         // @todo stop spinner and clear line
         await SE_CLI.printLine("Server received registration request!");
@@ -1022,7 +1021,7 @@ SE_CLI.modules.adopt = {
 SE_CLI.log = function (message, prefix) {
   console.log(`[${prefix}] ${message}`);
   const date = SE_CLI.printDate();
-  fs.writeFileSync(process.cwd() + `\\logs\\${prefix}${date}.txt`);
+  fs.appendFileSync(process.cwd() + `\\logs\\${prefix}${date}.txt`);
 };
 SE_CLI.error = function (message, error) {
   console.error(message, error);
@@ -1123,6 +1122,19 @@ SE_CLI.decodeToken = function (token) {
     console.error("Invalid JWT token", e);
     return null;
   }
+};
+// #endregion
+//------------------------------------------------------------------------
+/**
+ * @name
+ * @desc
+ *
+ */
+//------------------------------------------------------------------------
+// #region > Login
+//------------------------------------------------------------------------
+SE_CLI.login = function () {
+  //
 };
 // #endregion
 //------------------------------------------------------------------------
