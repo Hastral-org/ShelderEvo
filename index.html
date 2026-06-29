@@ -4,57 +4,81 @@
     <head>
         <meta charset="UTF-8">
         <meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Shelder Evolution</title>
         <link rel="icon" href="icon/icon.png" type="image/png">
-		<link rel="apple-touch-icon" href="icon/icon.png">
-		<link rel="stylesheet" type="text/css" href="css/cli.css">
+    <link rel="apple-touch-icon" href="icon/icon.png">
+    <link rel="stylesheet" type="text/css" href="css/cli.css">
     </head>
     <body style="background-color: black">
-        <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
-        <div id="crt-screen">
-            <section id="view-splash" class="terminal-view" style="display: block;">
-				<pre class="bios-logo">
+      <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+      <nav id="view-cli" class="crt-screen">
+        <main id="view-container" style="z-index: 2000;">
+          <!-- view contents -->
+        </main>
+        <div id="terminal-output">
+          <!-- terminal lines will be injected here by cli.js -->
+        </div>
+        <div id="input-line" class="input-line" style="display: none;"><span class="prompt">USER@MAGPIE:></span>
+          <input type="text" id="cli-input" autofocus spellcheck="false" autocomplete="off">
+        </div>
+        <template id="view-splash" class="terminal-view">
+          <pre class="bios-logo">
 ███╗   ███╗    █████╗     ██████╗    ██████╗ ██╗   ███████╗   
 ████╗ ████║   ██╔══██╗   ██╔════╝    ██╔══██╗██║   ██╔════╝   
 ██╔████╔██║   ███████║   ██║  ███╗   ██████╔╝██║   █████╗     
 ██║╚██╔╝██║   ██╔══██║   ██║   ██║   ██╔═══╝ ██║   ██╔══╝     
 ██║ ╚═╝ ██║██╗██║  ██║██╗╚██████╔╝██╗██║██╗  ██║██╗███████╗██╗
 ╚═╝     ╚═╝╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝╚═╝╚═╝  ╚═╝╚═╝╚══════╝╚═╝
-<br><span id="copyright">Ⓒ 2026 MATHERAPTOR @ MAEDASHELADI CORP.</span>
-				</pre>
-            </section>
-            <section id="view-logo" class="terminal-view" style="display: none;">
-╔════════════════════════════════════════════════════════════════════════════╗
-║ ███████╗██╗  ██╗███████╗██╗     ██████╗ ███████╗██████╗                    ║
-║ ██╔════╝██║  ██║██╔════╝██║     ██╔══██╗██╔════╝██╔══██╗                   ║
-║ ███████╗███████║█████╗  ██║     ██║  ██║█████╗  ██████╔╝                   ║
-║ ╚════██║██╔══██║██╔══╝  ██║     ██║  ██║██╔══╝  ██╔══██╗                   ║
-║ ███████║██║  ██║███████╗███████╗██████╔╝███████╗██║  ██║                   ║
-║ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═════╝ ╚══════╝╚═╝  ╚═╝                   ║
-║                                                                            ║
-║ ███████╗██╗   ██╗ ██████╗ ██╗     ██╗   ██╗████████╗██╗ ██████╗ ███╗   ██╗ ║
-║ ██╔════╝██║   ██║██╔═══██╗██║     ██║   ██║╚══██╔══╝██║██╔═══██╗████╗  ██║ ║
-║ █████╗  ██║   ██║██║   ██║██║     ██║   ██║   ██║   ██║██║   ██║██╔██╗ ██║ ║
-║ ██╔══╝  ╚██╗ ██╔╝██║   ██║██║     ██║   ██║   ██║   ██║██║   ██║██║╚██╗██║ ║
-║ ███████╗ ╚████╔╝ ╚██████╔╝███████╗╚██████╔╝   ██║   ██║╚██████╔╝██║ ╚████║ ║
-║ ╚══════╝  ╚═══╝   ╚═════╝ ╚══════╝ ╚═════╝    ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ║
-╚════════════════════════════════════════════════════════════════════════════╝
-            </section> 
-            <section id="view-cli" class="terminal-view">
-                <div id="terminal-output">
-                    <!-- terminal lines will be injected here by cli.js -->
-                </div>
-                <div id="input-line" class="input-line" style="display: none;"><span class="prompt">USER@MAGPIE:></span>
-                    <input type="text" id="cli-input" autofocus spellcheck="false" autocomplete="off">
-                </div>
-            </section>
-        </div>
-        <script src="js/app/cli.js"></script>
-        <script>
-            // nw.Window.get().evalNWBin(null, 'main.bin');
-        </script>
-        <script>SE_CLI.boot();</script>
+            <br><span id="copyright">Ⓒ 2026 MATHERAPTOR @ MAEDASHELADI CORP.</span>
+          </pre>
+        </template>
+        <template id="view-logo">
+
+        </template> 
+        <template id="view-login">
+          <div class="login-window">
+            <h1 class="view-heading centered">Login to PLAYER Hub</h1>
+            <form onsubmit="SE_CLI.login(event)" id="form-login" class="form-center-grid">
+              <div class="login-field">
+                <span class="login-label">EMAIL</span>
+                <input type="email" id="login-email" name="email" class="login-input" autocomplete="email" required placeholder="Enter your email address" style="z-index: 20000 !important;">
+              </div>
+              <div class="login-field">
+                <span class="login-label">PASSWORD</span>
+                <input type="password" id="login-password" name="password" class="login-input" autocomplete="current-password" required placeholder="Enter your password">
+              </div>
+              <br>
+              <div style="display: inline-block">
+                <button type="submit" id="login-submit" class="nav-button">📨 SUBMIT</button>
+                <button id="login-recover" onclick="SE_CLI.go('recover-password')" class="nav-button">🔑 RECOVER PASSWORD</button>
+                <button id="login-register" onclick="SE_CLI.go('register')" class="nav-button">⏺️ REGISTER</button>
+              </div>
+              <div id="login-feedback"></div>
+            </form>
+          </div>
+        </template>
+        <template id="view-recover-password">
+          <div class="login-window">
+            <h1 class="view-heading">Recover your password</h1>
+            <form onsubmit="SE_CLI.recoverPassword(event)" id="form-recover-password" class="form-center-grid">
+              <div class="login-field">
+                <span class="login-label">EMAIL</span>
+                <input type="email" id="recover-email" name="email" class="login-input" autocomplete="email" required placeholder="Enter your email address">
+              </div>
+              <br>
+              <div style="display: inline-block">
+                <button type="submit" id="recover-submit" class="nav-button">📨 SUBMIT</button>
+                <button onclick="SE_CLI.go('login')" class="nav-button">⏮️ LOGIN</button>
+                <button onclick="SE_CLI.go('register')" class="nav-button">⏺️ REGISTER</button>
+              </div>
+              <div id="recover-feedback"></div>
+            </form>
+          </div>
+        </template>
+      </nav>
+      <script src="js/plugins/app/cli.js"></script>
+      <script>SE_CLI.boot();</script>
     </body>
  </html>
