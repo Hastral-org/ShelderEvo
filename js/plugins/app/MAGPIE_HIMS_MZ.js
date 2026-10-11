@@ -225,9 +225,12 @@ MAGPIE_HIMS.prototype.log = function (options) {
  * @param {Error} error
  *
  */
-MAGPIE_HIMS.prototype.error = function (message, error) {
+MAGPIE_HIMS.error = function (message, error) {
   // this.log({ message: message, level: "error", logToConsole: true, error });
   console.error(message, error);
+};
+MAGPIE_HIMS.prototype.ePrefix = function (funcName) {
+  return `[HIMS].${funcName}: `;
 };
 // #endregion
 //------------------------------------------------------------------------

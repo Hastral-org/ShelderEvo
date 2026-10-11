@@ -42,13 +42,53 @@ MAGPIE.ENTITY = {};
 function MAGPIE_ENTITY(data) {
   this.initialize(data);
 }
+/**
+ * @typedef {Number} entityID
+ * @param {*} data
+ */
 MAGPIE_ENTITY.prototype.initialize = function (data) {
   this.ID = Number(data?.ID) || Date.now();
+  this._firmware = "MAGPIE_ENTITY";
   this.name = String(data?.name);
   this.type = Number(data?.type);
-  this.comp = {};
+  this.comp = {
+    /** @type {stateID[]} */
+    states: data?.states,
+  };
+};
+/**
+ *
+ * @param {String} message
+ * @param {String} level
+ * @param {Boolean} logToConsole
+ */
+MAGPIE_ENTITY.prototype.log = function (message, level, logToConsole) {
+  MAGPIE_HIMS.prototype.log({ message, level, logToConsole });
 };
 
+// #endregion
+//------------------------------------------------------------------------
+/**
+ * @name
+ * @desc
+ *
+ */
+//------------------------------------------------------------------------
+// #region > refresh
+//------------------------------------------------------------------------
+/**
+ *
+ * @param {Number} swtichID
+ * @param {Number} dt
+ */
+MAGPIE_ENTITY.prototype.refresh = function (switchID, dt) {
+  const ePrefix = `[ENTITY-${this.ID}].refresh: `;
+  try {
+    //
+  } catch (e) {
+    MAGPIE_HIMS.error(ePrefix + e.message, e);
+  }
+};
 // #endregion
 //------------------------------------------------------------------------
 /**
@@ -71,9 +111,16 @@ MAGPIE_ENTITY.prototype.initialize = function (data) {
  * @name
  * @desc
  * @typedef {{
- * _isActor: Boolean,
- * _name: String,
- * _type: Number,
+ * ID: Number,
+ * name: String,
+ * speciesID: Number,
+ * comp: {
+ * nickname: String,
+ * birthday: gameday,
+ * level: Number,
+ * isActor: Number,
+ * states: stateID[]
+ * }
  * }} creature_data
  * @typedef {Number} creatureId
  * @typedef {Number} speciesId
@@ -91,20 +138,57 @@ MAGPIE_CREATURE.prototype = Object.create(MAGPIE_ENTITY.prototype);
 MAGPIE_CREATURE.prototype.constructor = MAGPIE_CREATURE;
 /**
  *
+ * @param {String} message
+ * @param {Error} error
+ */
+MAGPIE_CREATURE.prototype.error = function (message, error) {
+  MAGPIE_HIMS.error(message, error);
+};
+MAGPIE_CREATURE.prototype.ePrefix = function (funcName) {
+  return `[CREATURE-${this.ID}].${funcName}: `;
+};
+/**
+ *
  * @param {creature_data} data
  */
 MAGPIE_CREATURE.prototype.initialize = function (data) {
   this.ID = Number(data?.ID) || Date.now();
-  this._name = String(data?.name);
-  this._type = Number(data?.type);
-  this.comp = {};
-  /** @type {Boolean} */
-  this._isActor = data?.isActor || false;
-  /** @type {stateID[]} */
-  this._states = data?.states || [];
+  this._firmware = "MAGPIE_CREATURE";
+  this.name = String(data?.name);
+  this.type = Number(data?.speciesID);
+  this.comp = {
+    nickname: String(data?.nickname),
+    birthday: Number(data?.birthday),
+    level: Number(data?.level) || 0,
+    /** @type {Boolean} */
+    isActor: Number(data?.isActor),
+    /** @type {stateID[]} */
+    states: data?.states || [],
+  };
 };
-MAGPIE_CREATURE.prototype.name = function () {
-  return this._name;
+/**
+ * @todo creature.setup
+ * @returns
+ */
+MAGPIE_CREATURE.prototype.setup = function () {
+  const ePrefix = this.ePrefix("setup");
+  try {
+    return true;
+  } catch (e) {
+    this.error(ePrefix + e.message, e);
+  }
+};
+MAGPIE_CREATURE.prototype._get_name = function (options) {
+  return this.name;
+};
+MAGPIE_CREATURE.prototype.states = function () {
+  return this.comp.states;
+};
+MAGPIE_CREATURE.prototype.isActor = function () {
+  return !!Number(this.comp?.isActor);
+};
+MAGPIE_CREATURE.prototype.actorId = function () {
+  return Number(this.comp?.isActor);
 };
 /**
  *
@@ -114,7 +198,7 @@ MAGPIE_CREATURE.prototype.species = function () {
   return this.skillCard();
 };
 MAGPIE_CREATURE.prototype.skillCard = function () {
-  return $dataSkills[this._type];
+  return $dataSkills[this.type];
 };
 MAGPIE_CREATURE.prototype.physique = function () {
   const physiqueId = Number(this.species().meta.physiqueId);
@@ -131,11 +215,38 @@ MAGPIE_CREATURE.prototype.reproduction = function () {
 MAGPIE_CREATURE.prototype.isCreature = function () {
   return this?.constructor?.name === "MAGPIE_CREATURE";
 };
-MAGPIE_CREATURE.prototype.nickname = function () {
-  return this.species().name();
+MAGPIE_CREATURE.prototype.nickname = function (options) {
+  if (options?.self) return this.comp.nickname;
+  return this.species().name;
+};
+MAGPIE_CREATURE.prototype._get_battlerName = function () {
+  const name = this.nickname();
+  return name.replaceAll(" ", "_");
 };
 MAGPIE_CREATURE._get_creature = function (creatureID) {
   return $entity.getByID(creatureID);
+};
+MAGPIE_CREATURE.prototype.birthday = function (options) {
+  return this.comp.birthday;
+};
+MAGPIE_CREATURE.prototype.level = function () {
+  const level = Number(this.comp.level);
+  if (isNaN(level)) this.initLevel();
+  return this.comp.level;
+};
+MAGPIE_CREATURE.prototype.evo = function () {
+  return Number(this.skillCard()?.meta?.evo);
+};
+MAGPIE_CREATURE.prototype.sex = function (options) {
+  const sex = Number(this.comp?.sex);
+  if (isNaN(sex)) this.comp.sex = this.initSex();
+  if (options?.textual) return Object.keys(SHELDEX.CREATURE_SEXES)[sex];
+  return sex;
+};
+MAGPIE_CREATURE.prototype.initSex = function () {
+  const sexes = Object.values(SHELDEX.CREATURE_SEXES);
+  const index = Math.floor(Math.random() * sexes.length);
+  return sexes[index];
 };
 // #endregion
 //------------------------------------------------------------------------
@@ -183,49 +294,91 @@ MAGPIE_CREATURE.prototype._get_habitat = function () {
 //------------------------------------------------------------------------
 // #region > init
 //------------------------------------------------------------------------
+// /**
+//  *
+//  * @param {creature_data} options
+//  */
+// MAGPIE_CREATURE.prototype.initCreature = function (options) {
+//   const ePrefix = this.ePrefix("initCreature");
+//   try {
+//     const speciesID = Number(options?.speciesID);
+//     const creatureID = Number(options?.ID);
+//     if (!creatureID) throw new Error(`${creatureID} is invalid creatureID`);
+//     if (!speciesID) {
+//       //@todo creature.initCreature.speciesID===0
+//       throw new Error(`${speciesID} is invalid speciesID`);
+//     }
+//     const creature = MAGPIE_CREATURE._get_creature(creatureID);
+//     if (!creature?.isCreature())
+//       throw new Error(`${creature} is invalid creature`);
+//     this._set_species(speciesID);
+//     this.ID = creatureID;
+//   } catch (e) {
+//     this.error(ePrefix + e.message, e);
+//   }
+// };
 /**
  *
- * @param {{
- * ID: creatureId,
- * speciesID: speciesId,
- * LVL: creature_lvl
- * }} options
+ * @param {creature_data} options
  */
-MAGPIE_CREATURE.prototype.initCreature = function (options) {
-  const ePrefix = "[CREATURE].initCreature: ";
+MAGPIE_HIMS.prototype.spawnCreature = function (options) {
+  const ePrefix = this.ePrefix("spawnCreature");
   try {
-    const speciesID = Number(options?.speciesID);
-    const creatureID = Number(options?.ID);
-    if (!creatureID) throw new Error(`${creatureID} is invalid creatureID`);
-    if (!speciesID) {
-      //@todo creature.initCreature.speciesID===0
-      throw new Error(`${speciesID} is invalid speciesID`);
-    }
-    const creature = MAGPIE_CREATURE._get_creature(creatureID);
-    if (!creature?.isCreature())
-      throw new Error(`${creature} is invalid creature`);
+    /** @type {creature_data} */
+    const data = {
+      speciesID: options?.speciesID,
+      name: options?.name,
+      comp: options?.comp,
+    };
+    const creature = new MAGPIE_CREATURE(data);
+    const setup = creature?.setup();
+    if (!setup) throw new Error("unable to setup");
+    const actorId = creature.actorId();
+    if (actorId) creature.setupActor(actorId);
   } catch (e) {
-    console.error(ePrefix + e.message, e);
+    this.error(ePrefix + e.message, e);
   }
 };
-MAGPIE_CREATURE.prototype.spawnEnemy = function (enemyIndex = NaN) {
-  const ePrefix = `[CREATURE-${this.ID}]`;
+/**
+ *
+ * @param {Number} actorId
+ * @returns {Boolean}
+ */
+MAGPIE_CREATURE.prototype.setupActor = function (actorId) {
+  const ePrefix = this.ePrefix("setupActor");
   try {
-    const spawnStates = this._states || [];
+    if (!Number(actorId)) actorId = Number(this.comp.isActor);
+    const actor = $gameActors[actorId];
+    if (!actor) throw new Error(`${actorId} is invalid actorId`);
+    actor._creatureID = this.ID;
+    if (!Number(this.comp.isActor)) this.comp.isActor = actorId;
+    return true;
+  } catch (e) {
+    this.error(ePrefix + e.message, e);
+  }
+};
+MAGPIE_CREATURE.prototype._set_species = function (speciesID) {
+  if (!Number(speciesID)) return false;
+  this.type = speciesID;
+};
+MAGPIE_CREATURE.prototype.spawnEnemy = function (enemyIndex = NaN) {
+  const ePrefix = this.ePrefix("spawnEnemy");
+  try {
+    const spawnStates = this.states() || [];
     const stats = SHELDEX._get_baseStatStates();
     spawnStates.push(...stats);
-    const nextEnemyIndex = $gameTroop.aliveMembers().length;
+    if (!enemyIndex) enemyIndex = $gameTroop.aliveMembers().length;
     const enemyID = this._get_enemyID();
     const members = $gameTroop.members();
-    const enemy = members[nextEnemyIndex];
+    const enemy = members[enemyIndex];
     enemy.appear();
     enemy.gainHp(1);
     enemy.transform(enemyID);
     const newSpawnIndex = $gameTroop.aliveMembers().length - 1;
     const newCreature = members[newSpawnIndex];
-    newCreature._name = this.species().name();
+    newCreature._name = this._get_battlerName();
     $gameTroop.makeUniqueNames();
-    newCreature.initCreature(this.ID);
+    // newCreature.initCreature(this.ID);
     newCreature.setupClass(Number($dataEnemies[enemyID].meta.classId));
     newCreature.changeExp(this.growthExp());
     const params = SHELDEX.PARAM;
@@ -251,7 +404,7 @@ MAGPIE_CREATURE.prototype.spawnEnemy = function (enemyIndex = NaN) {
     this._isSpawned = true;
     return true;
   } catch (e) {
-    console.error(ePrefix + e.message, e);
+    this.error(ePrefix + e.message, e);
   }
 };
 MAGPIE_CREATURE.prototype.unspawnEnemy = function () {
@@ -265,6 +418,101 @@ MAGPIE_CREATURE.prototype.unspawnEnemy = function () {
  */
 MAGPIE_CREATURE.prototype.enemy = function () {
   return $gameTroop.members().findIndex((e) => e?._creatureID === this.ID);
+};
+MAGPIE_CREATURE.prototype.generateParams = function () {
+  const ePrefix = this.ePrefix("generateParams");
+  try {
+    const level = this.level();
+    const sex = this.sex();
+    const skillCard = this.skillCard();
+    const mass = this._get_mass();
+    const aggro = this._get_aggro();
+    const dex = this._get_dex();
+    const sen = this._get_sen();
+    const sta = this._get_sta();
+    const end = this._get_end();
+    const fit = this._get_fit();
+    const res = this._get_res();
+    const diet = this._get_diet();
+    const params = {
+      level,
+      sex,
+      mass,
+      aggro,
+      dex,
+      sen,
+      sta,
+      end,
+      fit,
+      res,
+      diet,
+    };
+    return params;
+  } catch (e) {
+    this.error(ePrefix + e.message, e);
+  }
+};
+MAGPIE_CREATURE.prototype._get_mass = function (options) {
+  const battler = this.battler();
+  if (battler) return battler.def;
+  const base = this.physique().params[SHELDEX.PARAM.MASS];
+};
+MAGPIE_CREATURE.prototype._get_aggro = function (options) {
+  const battler = this.battler();
+  if (battler) return battler.atk;
+  return this.physique().params[SHELDEX.PARAM.AGGRO];
+};
+MAGPIE_CREATURE.prototype._get_dex = function (options) {
+  const battler = this.battler();
+  if (battler) return battler.mdf;
+  return this.physique().params[SHELDEX.PARAM.DEX];
+};
+MAGPIE_CREATURE.prototype._get_sen = function (options) {
+  const battler = this.battler();
+  if (battler) return battler.mat;
+  return this.physique().params[SHELDEX.PARAM.SEN];
+};
+MAGPIE_CREATURE.prototype._get_sta = function (options) {
+  const battler = this.battler();
+  if (battler) return battler.mmp;
+  return this.metabolism().params[SHELDEX.PARAM.END];
+};
+MAGPIE_CREATURE.prototype._get_fit = function (options) {
+  const battler = this.battler();
+  if (battler) return battler.mhp;
+  return this._get_sumStats();
+};
+MAGPIE_CREATURE.prototype._get_sumStats = function () {
+  const mass = this._get_mass();
+  const aggro = this._get_aggro();
+  const dex = this._get_dex();
+  const sen = this._get_sen();
+  return mass + aggro + dex + sen;
+};
+MAGPIE_CREATURE.prototype._get_diet = function (options) {
+  const sum = this._get_sumStats();
+  const sta = this._get_sta();
+  return sta * sum;
+};
+MAGPIE_CREATURE.prototype.initLevel = function () {
+  const ePrefix = this.ePrefix("initLevel");
+  try {
+    const skillCard = this.skillCard();
+    if (!skillCard) throw new Error(`${skillCard} is invalid skillCard`);
+    const gameday = $TIME.gameday;
+    const birthday = this.birthday();
+    if (birthday > gameday)
+      throw new Error(`'${birthday}' is invalid birthday`);
+    const evo = this.evo();
+    const level = Math.ceil((gameday - birthday) / evo);
+    this.comp.level = level;
+    return level;
+  } catch (e) {
+    this.error(ePrefix + e.message, e);
+  }
+};
+MAGPIE_CREATURE.prototype.growthExp = function () {
+  return this.level() * this.evo();
 };
 // #endregion
 //------------------------------------------------------------------------

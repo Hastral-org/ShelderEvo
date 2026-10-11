@@ -3,16 +3,21 @@
 //========================================================================
 /*:
  * @target MZ
- * @plugindesc [Tier 0] v0.5.1 MAGPIE_CORE
+ * @plugindesc [Tier 0] v0.6.0 MAGPIE_CORE
  * @author Matheraptor
  * @url https://matheraptor.itch.io/magpie-core
  *
  * @help
- *
+ * -----------------------------------------------------------------------
+ * - [ ] RUNTIME
+ * - [ ] BRAIN
  *
  * -----------------------------------------------------------------------
  * CHANGELOG
  * -----------------------------------------------------------------------
+ * v0.6.0 2026 10 11
+ * - restructure (see Notion 'Brainstorm -same day-')
+ *
  * v0.5.1 2026 07 28
  * - full re-build
  */
@@ -21,7 +26,7 @@
 /**
  * @namespace MAGPIE
  * @author Matheraptor
- * @version 0.5.1
+ * @version 0.6.0
  * @desc
  */
 //========================================================================
@@ -31,9 +36,9 @@ var MAGPIE = {};
 MAGPIE.meta = {
   name: "M.A.G.P.I.E.™",
   desc: "(M)odular (A)lgorithmic (G)eneral-(P)urpose (I)ntelligence (E)ngine ™",
-  version: [0, 5, 1],
+  version: [0, 6, 0],
   firmwareName: "MAGPIE",
-  firmwareDate: "20260728",
+  firmwareDate: "20261011",
 };
 //#endregion
 //========================================================================

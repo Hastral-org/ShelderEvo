@@ -43,7 +43,7 @@ SE_CLI.params = new URLSearchParams(window.location.search);
 const fetch = globalThis?.fetch ? globalThis.fetch : window.fetch;
 const fs = require("fs");
 SE_CLI.env = fs.readFileSync(process.cwd() + "/.env", "utf-8");
-require("dotenv").config();
+require("./js/plugins/app/node_modules/dotenv").config();
 //#endregion
 //========================================================================
 /**

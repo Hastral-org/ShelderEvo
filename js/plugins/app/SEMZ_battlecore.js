@@ -247,6 +247,14 @@ MAGPIE_BATTLECORE._update_resourceStates = function (user) {
   this._update_staminaStates(user);
   this._update_energyStates(user);
 };
+/**
+ *
+ * @param {Game_Battler} user
+ */
+MAGPIE_BATTLECORE._setup_params = function (user) {
+  user._setup_mhp();
+  user._setup_mmp();
+};
 MAGPIE_BATTLECORE._update_staminaStates = function (user) {
   const ePrefix = "[BATTLECORE]._update_staminaStates: ";
   try {
@@ -429,8 +437,13 @@ MAGPIE_BATTLECORE.setupBattle = function () {
   const leader = $gameParty.leader();
   this._setup_deckInjuries(leader);
 };
+MAGPIE_BATTLECORE.battleStart = function (user) {
+  user._setup_mhp();
+  user._setup_mmp();
+};
 MAGPIE_BATTLECORE.turnStart = function (user) {
   this._update_resourceStates(user);
+  // this._update_params(user);
 };
 MAGPIE_BATTLECORE.turnEnd = function (user) {
   //
@@ -528,6 +541,33 @@ MAGPIE_HIMS.prototype.onRestFull = function (user) {
 };
 MAGPIE_BATTLECORE._set_switchDiscard = function (value = false) {
   $gameSwitches.setValue(SHELDEX.SWITCH.DISCARD, value);
+};
+// #endregion
+//------------------------------------------------------------------------
+/**
+ * @name
+ * @desc
+ *
+ */
+//------------------------------------------------------------------------
+// #region > Params
+//------------------------------------------------------------------------
+Game_Battler.prototype._setup_mhp = function () {
+  if (this.mhp > 1) return;
+  const isActor = this.isActor() ? Number(this.totalDeckSize) : 0;
+  const base = isActor || this._get_sumStats();
+  this.addParam(SHELDEX.PARAM.FIT, base - 1);
+  this.recoverAll();
+};
+Game_Battler.prototype._get_sumStats = function () {
+  const mass = this.def;
+  const aggro = this.atk;
+  const dex = this.mdf;
+  const sen = this.mat;
+  return mass + aggro + dex + sen;
+};
+Game_Battler.prototype._setup_mmp = function () {
+  //
 };
 // #endregion
 //------------------------------------------------------------------------
